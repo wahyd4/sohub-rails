@@ -1,0 +1,10 @@
+- content_for :style_includes do
+  =stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Cherry+Swash|Arapey:400italic'
+
+div.big-screen-container
+  div.sohub
+    h1 Sohub
+    p
+      a.btn.btn-success.btn-large href="/message" Show me one!
+    div.qrcode
+      img src="/assets/qrcode.jpg" title="请使用微信扫描我"

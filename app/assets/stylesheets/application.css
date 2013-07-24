@@ -11,3 +11,145 @@
  *= require_self
  *= require_tree .
  */
+
+
+a {
+    text-decoration: none;
+}
+
+h1 a {
+    text-align: center;
+    text-decoration: none;
+}
+
+#loading {
+    font-size: 72px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    z-index: 50;
+    color: #ffffff;
+}
+
+.main-container {
+    width: 100%;
+    color: #ffffff;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+.main-container .content {
+    margin: 0px auto;
+    width: 92%;
+}
+
+
+
+.main-container .content li {
+    font-size: 4em;
+    text-shadow: 0px 1px 1px #111;
+    z-index: 100;
+    line-height: 150%;
+}
+
+.main-container .content li p {
+    text-indent: 2em;
+}
+
+.item {
+    margin: 1.3em 0 1em;
+    padding: 1.3em;
+    font-family: Consolas, 'Liberation Mono', Courier, monospace;
+    color: #333;
+    background: rgb(250, 250, 250);
+    border: 1px solid #eee;
+}
+
+.content li {
+    list-style: none;
+}
+
+.image-content li img{
+    width: 100%;
+
+}
+
+.weibo-content li .weibo{
+    max-height: 500px;
+    text-align: center;
+}
+
+.weibo-content li .weibo p {
+    text-align: left;
+}
+
+.content li.alert {
+    padding: 19px 35px 19px 14px;
+    height: 200px;
+}
+
+.content li blockquote {
+    font-size: 2em;
+}
+
+.content li .footprint {
+    font-size: 0.9em;
+}
+
+.image-content figure img {
+    max-width: 100%;
+}
+
+.footprint {
+    text-align: center;
+    line-height: 100%;
+}
+
+.footprint img {
+    max-width: 80px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-top: 15px;
+    box-shadow: 0 0 15px #000
+}
+
+.footprint div {
+    font-size: 40%;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    font-size: 14px;
+    color: #ffffff;
+    width: 100%;
+    left: 0;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.footer a {
+    color: #333;
+    margin-left: 40px;
+}
+
+.sohub {
+    margin: 125px auto 0;
+    text-align: center;
+    font-family: 'Cherry Swash', cursive;
+}
+
+.sohub h1 {
+    margin-bottom: 1em;
+    font-size: 110px;
+}
+
+.big-screen-container .progress {
+    position: fixed;
+    bottom: 11px;
+    width: 100%;
+    left: 0;
+}
+
