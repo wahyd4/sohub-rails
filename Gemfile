@@ -30,7 +30,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'rails-i18n', '~> 4.0.0.pre' # For 4.0.x
 gem 'pg'
-gem 'rspec-rails'
 gem 'slim'
 gem 'puma'
 gem 'google_calendar'
@@ -52,3 +51,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development,:test do
+  gem 'rspec-rails'
+  gem 'rspec-mocks'
+end

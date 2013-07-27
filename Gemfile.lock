@@ -150,6 +150,7 @@ DEPENDENCIES
   puma
   rails (= 4.0.0)
   rails-i18n (~> 4.0.0.pre)
+  rspec-mocks
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

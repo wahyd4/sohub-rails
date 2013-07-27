@@ -8,4 +8,6 @@ SohubRails::Application.routes.draw do
   resource :messages
 
   get '/messages/:type' => 'messages#show_by_type'
+
+  get '/calendar' => 'calendar#index'
 end
