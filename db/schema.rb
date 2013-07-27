@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20130724140853) do
 
-  create_table "messages", force: true do |t|
+  create_table "Messages", force: true do |t|
     t.string   "to_user"
     t.string   "from_user"
     t.datetime "create_time"

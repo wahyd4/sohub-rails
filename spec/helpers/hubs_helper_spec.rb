@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 # Specs in this file have access to a helper object that includes
-# the HubHelper. For example:
+# the HubsHelper. For example:
 #
-# describe HubHelper do
+# describe HubsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-describe HubHelper do
+describe HubsHelper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

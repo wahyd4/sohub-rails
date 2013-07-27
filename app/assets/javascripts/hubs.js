@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    if (!assertOnPage('message')) {
+    if (!assertOnPage('hubs')) {
         return false;
     }
 
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     cycling(interval, nextChildToShow);
 
-    $.get('/message/text', function (json) {
+    $.get('/messages/text', function (json) {
     })
         .done(function (json) {
             var content = $('.text-content');
@@ -65,8 +65,8 @@ $(document).ready(function () {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="/images/elephant.jpg">');
-                footprint.append('<div>' + json[i].fromUser + '发表于' + timeSince(json[i].createTime) + '</div>');
+                footprint.append('<img src="/assets/elephant.jpg">');
+                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].create_time) + '</div>');
                 item.append(footprint);
 
                 if (i === 0) {
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
     //delay 1 minute to display images
     setTimeout(function () {
-        $.get('/message/image', function (json) {
+        $.get('/Messages/image', function (json) {
             var imageContainer = $('.image-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li></li>');
@@ -100,9 +100,9 @@ $(document).ready(function () {
         });
     }, interval - 1000 * 30);
 
-    // delay almost 2 minute to display notice message
+    // delay almost 2 minute to display notice Messages
     setTimeout(function () {
-        $.get('/message/notice', function (json) {
+        $.get('/Messages/notice', function (json) {
             var noticeContainer = $('.notice-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li style="display: none"></li>');
@@ -122,7 +122,7 @@ $(document).ready(function () {
     }, interval * 2 - 1000 * 30);
 
 
-    // delay almost 2.5 minute to display notice message
+    // delay almost 2.5 minute to display notice Messages
     setTimeout(function () {
         $.get('/weibo', function (json) {
             json = json.items;
