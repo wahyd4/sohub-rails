@@ -87,11 +87,11 @@ $(document).ready(function () {
 
     //delay 1 minute to display images
     setTimeout(function () {
-        $.get('/Messages/image', function (json) {
+        $.get('/messages/image', function (json) {
             var imageContainer = $('.image-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li></li>');
-                item.append('<img src="' + json[i].pictureUrl + '">');
+                item.append('<img src="' + json[i].picture_url   + '">');
                 imageContainer.append(item);
 
             }
@@ -102,14 +102,14 @@ $(document).ready(function () {
 
     // delay almost 2 minute to display notice Messages
     setTimeout(function () {
-        $.get('/Messages/notice', function (json) {
+        $.get('/messages/notice', function (json) {
             var noticeContainer = $('.notice-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
                 footprint.append('<img src="/images/elephant.jpg">');
-                footprint.append('<div>' + json[i].fromUser + '发表于' + timeSince(json[i].createTime) + '</div>');
+                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].create_time) + '</div>');
                 item.append(footprint);
                 item.append('<p>' + json[i].content + '</p>');
                 noticeContainer.append(item);
