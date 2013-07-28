@@ -91,7 +91,7 @@ $(document).ready(function () {
             var imageContainer = $('.image-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li></li>');
-                item.append('<img src="' + json[i].picture_url   + '">');
+                item.append('<img src="' + json[i].picture_url + '">');
                 imageContainer.append(item);
 
             }
@@ -108,7 +108,7 @@ $(document).ready(function () {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="/images/elephant.jpg">');
+                footprint.append('<img src="/assets/elephant.jpg">');
                 footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].create_time) + '</div>');
                 item.append(footprint);
                 item.append('<p>' + json[i].content + '</p>');
@@ -122,57 +122,57 @@ $(document).ready(function () {
     }, interval * 2 - 1000 * 30);
 
 
-    // delay almost 2.5 minute to display notice Messages
-    setTimeout(function () {
-        $.get('/weibo', function (json) {
-            json = json.items;
-            console.log(json);
-            var weiboContainer = $('.weibo-content');
-            for (var i = 0; i < json.length; i++) {
-                var item = $('<li style="display: none"></li>');
+//    // delay almost 2.5 minute to display notice Messages
+//    setTimeout(function () {
+//        $.get('/weibo', function (json) {
+//            json = json.items;
+//            console.log(json);
+//            var weiboContainer = $('.weibo-content');
+//            for (var i = 0; i < json.length; i++) {
+//                var item = $('<li style="display: none"></li>');
+//
+//                var footprint = $('<div></div>').addClass('footprint');
+//                footprint.append('<img src="' + json[i].user.avatar_hd + '">');
+//                footprint.append('<div>' + json[i].user.name + '发布于' + timeSince(new Date(json[i].created_at)) + '</div>');
+//                item.append(footprint);
+//                var content = $('<div class="weibo"> </div>');
+//                if (json[i].original_pic !== undefined) {
+//                    content.append('<img src="' + json[i].original_pic + '"></img>');
+//                }
+//                content.append('<p>' + json[i].text + '</p>');
+//                item.append(content);
+//                weiboContainer.append(item);
+//
+//            }
+//
+//            slideDiv(weiboContainer, textMessageCount);
+//
+//        });
+//    }, interval * 3 - 1000 * 30);
 
-                var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="' + json[i].user.avatar_hd + '">');
-                footprint.append('<div>' + json[i].user.name + '发布于' + timeSince(new Date(json[i].created_at)) + '</div>');
-                item.append(footprint);
-                var content = $('<div class="weibo"> </div>');
-                if (json[i].original_pic !== undefined) {
-                    content.append('<img src="' + json[i].original_pic + '"></img>');
-                }
-                content.append('<p>' + json[i].text + '</p>');
-                item.append(content);
-                weiboContainer.append(item);
-
-            }
-
-            slideDiv(weiboContainer, textMessageCount);
-
-        });
-    }, interval * 3 - 1000 * 30);
-
-    setTimeout(function () {
-        $.get('/calendar', function (json) {
-            console.log(json);
-            json = json.items;
-            var calendarContainer = $('.calendar-content');
-            for (var i = 0; i < json.length; i++) {
-                var item = $('<li style="display: none"></li>');
-
-                var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="/images/elephant.jpg">');
-                footprint.append('<div>' + json[i].organizer.displayName + '发布于' + timeSince(new Date(json[i].created)) + '</div>');
-                item.append(footprint);
-                var content = $('<div class="calendar"> </div>');
-                content.append('<p>从' + json[i].start.dateTime + '到' + json[i].end.dateTime + '</p>')
-                content.append('<p>' + json[i].summary + '</p>');
-                item.append(content);
-                calendarContainer.append(item);
-
-            }
-
-            slideDiv(calendarContainer, textMessageCount);
-
-        });
-    }, interval * 4 - 1000 * 30);
+//    setTimeout(function () {
+//        $.get('/calendar', function (json) {
+//            json = $.toJSON(json);
+//            console.log(json);
+//            var calendarContainer = $('.calendar-content');
+//            for (var i = 0; i < json.length; i++) {
+//                var item = $('<li style="display: none"></li>');
+//
+//                var footprint = $('<div></div>').addClass('footprint');
+//                footprint.append('<img src="/assets/elephant.jpg">');
+//                footprint.append('<div> 发布于' + timeSince(json[i].published_time) + '</div>');
+//                item.append(footprint);
+//                var content = $('<div class="calendar"> </div>');
+//                content.append('<p>从' + json[i].start_time + '</p>')
+//                content.append('<p>' + json[i].title + '</p>');
+//                item.append(content);
+//                calendarContainer.append(item);
+//
+//            }
+//
+//            slideDiv(calendarContainer, textMessageCount);
+//
+//        });
+//    }, interval * 4 - 1000 * 30);
 
 });

@@ -3,15 +3,18 @@ require 'google_calendar'
 module GoogleCalendarService
 
   def init
-    Google::Calendar.new username: ::ENV['CAL_EMAIL'],
-                         password: ::ENV['CAL_CREDENTIAL'],
-                         app_name: 'sohub'
-
+    cal = Google::Calendar.new username: ENV['CAL_EMAIL'],
+                               password: 'myaabhvqxotmporz',
+                               app_name: 'sohub'
+    cal
   end
 
   def calendar_list
-    list = self.init.events.limit
-    list
+    begin
+      init.events
+    rescue => errors
+      Rails.logger.info "error=============="
+    end
   end
 
 end

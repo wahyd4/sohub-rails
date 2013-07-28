@@ -34,6 +34,8 @@ gem 'slim'
 gem 'puma'
 gem 'google_calendar'
 gem 'omniauth'
+gem 'actionpack-action_caching'
+gem 'omniauth-weibo-oauth2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
