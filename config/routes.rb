@@ -7,7 +7,19 @@ SohubRails::Application.routes.draw do
 
   resource :messages
 
+
   get '/messages/:type' => 'messages#show_by_type'
 
   get '/calendar' => 'calendar#index'
+
+  get '/sohub' => 'admin#index'
+
+  get '/login', to: "sessions#new"
+  get '/signup', to: "sessions#signup"
+
+  post "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/failure", to: "sessions#failure"
+  get "/logout", to: "sessions#destroy", :as => "logout"
+
+  resources :identities
 end

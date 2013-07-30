@@ -11,9 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130724140853) do
+ActiveRecord::Schema.define(version: 20130730145803) do
 
-  create_table "Messages", force: true do |t|
+  create_table "identities", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
     t.string   "to_user"
     t.string   "from_user"
     t.datetime "create_time"
@@ -23,6 +31,16 @@ ActiveRecord::Schema.define(version: 20130724140853) do
     t.string   "picture_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
   end
 
 end

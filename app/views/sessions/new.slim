@@ -1,0 +1,10 @@
+.container
+  = form_tag "/auth/identity/callback", class:'form-login'
+    h2 登录
+    - if flash[:alert]
+      div#alert class="alert"
+        button type="button" class="close" data-dismiss="alert" ×
+        = alert
+    = text_field_tag :auth_key, '', placeholder: "Email", class: 'input-block-level'
+    = password_field_tag :password, '', placeholder: "密码", class: 'input-block-level'
+    = button_tag "登录", type:'submit', class: 'btn btn-primary btn-large'
