@@ -17,7 +17,9 @@ SohubRails::Application.routes.draw do
   get '/login', to: "sessions#new"
   get '/signup', to: "sessions#signup"
 
-  post "/auth/:provider/callback", to: "sessions#create"
+  get '/auth/weibo/callback', to: "sessions#weibo"
+
+  get "/auth/:provider/callback", to: "sessions#create"
   get "/auth/failure", to: "sessions#failure"
   get "/logout", to: "sessions#destroy", :as => "logout"
 

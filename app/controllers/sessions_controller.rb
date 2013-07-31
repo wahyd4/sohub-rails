@@ -14,11 +14,21 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to :back, alert: "Authentication failed, please try again."
+    redirect_to :root, alert: "Authentication failed, please try again."
   end
 
   def signup
     @identity = env['omniauth.identity']
+  end
+
+  def weibo
+    hash = env["omniauth.auth"]
+    weibo_key = hash["credentials"]["token"]
+    render text: weibo_key
+  end
+
+  def google
+    Rails.logger.info "======"+ env["omniauth.auth"].to_s
   end
 
 end
