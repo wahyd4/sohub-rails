@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130731113806) do
+ActiveRecord::Schema.define(version: 20130731133103) do
 
   create_table "credentials", force: true do |t|
-    t.string   "type"
+    t.string   "oauth_provider"
     t.string   "token"
     t.string   "fresh_token"
     t.datetime "created_at"

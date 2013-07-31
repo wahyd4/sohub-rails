@@ -12,4 +12,23 @@
     padding: 20px 30px;
     margin-top: 40px;
   }
+
+  .row.dashboard {
+    .span3 {
+      padding: 14px 30px 14px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin: 0 15px 10px;
+      height: 100px;
+
+      p {
+        line-height: 60px;
+        font-size: 57px;
+        text-align: center;
+        margin-top: 10px;
+        color: #FF6600;
+      }
+    }
+  }
 }

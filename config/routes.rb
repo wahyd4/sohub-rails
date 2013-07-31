@@ -12,16 +12,18 @@ SohubRails::Application.routes.draw do
 
   get '/calendar' => 'calendar#index'
 
-  get '/sohub' => 'admin#index'
+  get '/admin' => 'admin#index'
 
   get '/login', to: "sessions#new"
   get '/signup', to: "sessions#signup"
 
   get '/auth/weibo/callback', to: "sessions#weibo"
 
-  get "/auth/:provider/callback", to: "sessions#create"
+  match "/auth/:provider/callback", to: "sessions#create", :via => [:get, :post]
   get "/auth/failure", to: "sessions#failure"
   get "/logout", to: "sessions#destroy", :as => "logout"
+
+  get '/weibo', to: "weibo#index"
 
   resources :identities
 end

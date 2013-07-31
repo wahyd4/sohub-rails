@@ -1,11 +1,20 @@
+require 'oauth_utils'
 class SessionsController < ApplicationController
+  include OauthUtils
+
   def new
   end
 
   def create
+    if params[:provider] =='weibo' && env["omniauth.auth"]["uid"]==1241296550
+      token =env["omniauth.auth"]["credentials"]["token"]
+      weibo_util token
+      render text: '更新微博token成功'
+      return
+    end
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to sohub_url, notice: "Signed in!"
+    redirect_to root_path, notice: "Signed in!"
   end
 
   def destroy
@@ -19,12 +28,6 @@ class SessionsController < ApplicationController
 
   def signup
     @identity = env['omniauth.identity']
-  end
-
-  def weibo
-    hash = env["omniauth.auth"]
-    weibo_key = hash["credentials"]["token"]
-    render text: weibo_key
   end
 
   def google

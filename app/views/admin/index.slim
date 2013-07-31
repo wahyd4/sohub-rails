@@ -1,4 +1,33 @@
-p hello
-div
-  p 微博
-  p = @weibo_key
+div.container
+  h2 控制台
+  div.navbar
+    div.navbar-inner
+      div.container
+        ul.nav
+          li.active
+            a href="#" 系统统计
+          li
+            a href="#" 系统统计
+          li
+            a href="#" 系统统计
+          li
+            a href="#" 系统统计
+  div.row.dashboard
+    div.span3
+        span 微博Key
+        p = @weibo !=nil
+    div.span3
+        span 节点数量
+        p =
+    div.span3
+        span 传入消息数量
+        p =
+    div.span3
+        span 传出消息数量
+        p =
+    div.span3
+        span 发送短信数量
+        p =
+    div.span3
+        span 发送邮件数量
+        p =
