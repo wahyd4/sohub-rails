@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     Rails.logger.warn "============&&&&&&&========" + env["omniauth.auth"].to_s
 
-    if params[:provider] =='weibo' && env["omniauth.auth"]["uid"]==1241296550
+    if params[:provider] =='weibo' && env["omniauth.auth"]["uid"]==3687629193
       token =env["omniauth.auth"]["credentials"]["token"]
       Credential.create_weibo_credential token
       render text: '更新微博token成功'

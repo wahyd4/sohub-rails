@@ -11,7 +11,7 @@ class WeiboController < ApplicationController
 
           render json: response
         when 423
-          raise SomeCustomExceptionIfYouWant
+          raise Exception
         else
           response.return!(request, result, &block)
       end

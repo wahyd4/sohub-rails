@@ -140,6 +140,14 @@ $(document).ready(function () {
                     content.append('<img src="' + json[i].original_pic + '"></img>');
                 }
                 content.append('<p>' + json[i].text + '</p>');
+                if (json[i].retweeted_status !== undefined) {
+                    var reweet = $('<div class="retweet"></div>');
+                    reweet.append('<p>' + json[i].retweeted_status.text + '</p>')
+                    if (json[i].retweeted_status.original_pic !== undefined) {
+                        reweet.append('<img src="' + json[i].retweeted_status.original_pic + '"></img>');
+                        content.append(reweet);
+                    }
+                }
                 item.append(content);
                 weiboContainer.append(item);
 
@@ -179,6 +187,6 @@ $(document).ready(function () {
             slideDiv(calendarContainer, textMessageCount);
 
         });
-    }, interval * 4 - 1000 * 30);
+    }, interval * 0.55 - 1000 * 30);
 
 });
