@@ -4,9 +4,21 @@
 
 body {
   overflow: hidden;
-  background-color: #1f8dd6;
+  //background-color: #1f8dd6;
+  //background-color: #459faa;
+  background-color: #0dacd4;
 }
 
-.footer a{
+.footer a {
   color: #ffffff;
+}
+
+.main-container{
+  div{
+    i{
+      margin: 50px auto auto 60px;
+      position: absolute;
+      color: #FDA343;
+    }
+  }
 }

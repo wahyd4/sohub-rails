@@ -5,9 +5,9 @@ html
     = csrf_meta_tags
     = yield :style_includes
 body
-    = yield
+  = yield
+  =render 'layouts/simple_footer'
 
-    =render 'layouts/footer'
 = javascript_include_tag :application, "data-turbolinks-track" => true
 = javascript_include_tag 'bootstrap.min.js',  "data-turbolinks-track" => true
 = javascript_include_tag 'lib/jquery.json-2.4.min.js',"data-turbolinks-track" => true

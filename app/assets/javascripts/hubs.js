@@ -187,6 +187,6 @@ $(document).ready(function () {
             slideDiv(calendarContainer, textMessageCount);
 
         });
-    }, interval * 0.55 - 1000 * 30);
+    }, interval * 4 - 1000 * 30);
 
 });

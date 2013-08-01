@@ -24,7 +24,7 @@ Message.create picture_url: 'http://localhost:3000/assets/qrcode.jpg', to_user: 
                 create_time: DateTime.now, message_id: 5893056478695514624
 
 
-Message.create content: "周教授的微博掀起了两派争论。一派以“守寂沉空”为代表，发帖称：这个论文显然是不能通过的。秀文艺用错了地方会让人觉得油腻。诗讲究情感，学术研究是理性的，遵守的不是艺术的逻辑。另一派则以“胡野秋”为代表，发帖称：关键看内容，陈寅恪的《柳如是別传》也是用小说写唐史。如今的所谓论文格式化要求已毁了论文。",
+Message.create content: "周教授的微博掀起了两派争论。一派以“守寂沉空”为代表，发帖称：这个论文显然是不能通过的。秀文艺用错了地方会让人觉得油腻。诗讲究情感，学术研究是理性的，遵守的不是艺术的逻辑。另一派则以“胡野秋”为代表，发帖称：关键看内容，陈寅恪的《柳如是別传》也是用小说写唐史。如今的所谓论文格式化要求已毁了论文。中国源项目是由开源中国建立的基于阿里云的大型综合性为开发者服务的项目，该项目主要有两个部分组成",
                 to_user: 'gh_418963502e3c',
                 from_user:'oGHz6jqRjNHwBo_a_s', message_type: 'notice',
                 create_time: DateTime.now, message_id: 5893056478695514624

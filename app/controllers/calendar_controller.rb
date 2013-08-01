@@ -11,7 +11,7 @@ class CalendarController < ApplicationController
     RestClient.get(url, {params: {access_token: token}}) { |response, request, result, &block|
       case response.code
         when 200
-          render json: response.to_s
+          render json: response, content_type: "application/json"
         when 401
           refresh_token
           redirect_to calendar_path
