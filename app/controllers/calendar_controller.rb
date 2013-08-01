@@ -1,7 +1,7 @@
 require 'oauth_utils'
 class CalendarController < ApplicationController
 
-  #caches_action :index, expires_in: 15.minutes
+  caches_action :index, expires_in: 15.minutes
   include OauthUtils
 
   def index
@@ -14,7 +14,7 @@ class CalendarController < ApplicationController
           render json: response.to_s
         when 401
           refresh_token
-          redirect_to root_path
+          redirect_to calendar_path
         else
           response.return!(request, result, &block)
       end

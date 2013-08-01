@@ -17,6 +17,7 @@ module OauthUtils
       token = refresh.parsed_response['access_token']
       Credential.update_google_token token
     else
+      Rails.logger.error "ERROR:"+ refresh.to_s
       raise Exception
     end
   end
