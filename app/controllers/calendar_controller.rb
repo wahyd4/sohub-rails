@@ -1,7 +1,7 @@
 require 'oauth_utils'
 class CalendarController < ApplicationController
 
-  #caches_action :index, expires_in: 1.hour
+  caches_action :index, expires_in: 15.minutes
   include OauthUtils
 
   def index
