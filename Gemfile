@@ -40,6 +40,7 @@ gem 'omniauth-weibo-oauth2'
 gem 'omniauth-google-oauth2'
 gem 'bcrypt-ruby'
 gem 'rest-client'
+gem 'httparty'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

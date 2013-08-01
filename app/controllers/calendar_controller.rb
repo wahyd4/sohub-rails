@@ -1,17 +1,24 @@
-require 'google_calendar_service'
-
+require 'oauth_utils'
 class CalendarController < ApplicationController
 
-  include GoogleCalendarService
-
-  caches_action :index, expires_in: 1.hour
+  #caches_action :index, expires_in: 1.hour
+  include OauthUtils
 
   def index
-    @list = calendar_list
-    @list.each do |calendar|
-      calendar.calendar = nil
-    end
-    render json: @list
+    token = Credential.google_token
+    url ='https://www.googleapis.com/calendar/v3/calendars/wahyd4@gmail.com/events'
+
+    RestClient.get(url, {params: {access_token: token}}) { |response, request, result, &block|
+      case response.code
+        when 200
+          render json: response
+        when 401
+          refresh_token
+          redirect_to root_path
+        else
+          response.return!(request, result, &block)
+      end
+    }
   end
 
 end

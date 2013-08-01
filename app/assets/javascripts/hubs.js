@@ -150,29 +150,35 @@ $(document).ready(function () {
         });
     }, interval * 3 - 1000 * 30);
 
-//    setTimeout(function () {
-//        $.get('/calendar', function (json) {
-//            json = $.toJSON(json);
-//            console.log(json);
-//            var calendarContainer = $('.calendar-content');
-//            for (var i = 0; i < json.length; i++) {
-//                var item = $('<li style="display: none"></li>');
-//
-//                var footprint = $('<div></div>').addClass('footprint');
-//                footprint.append('<img src="/assets/elephant.jpg">');
-//                footprint.append('<div> 发布于' + timeSince(json[i].published_time) + '</div>');
-//                item.append(footprint);
-//                var content = $('<div class="calendar"> </div>');
-//                content.append('<p>从' + json[i].start_time + '</p>')
-//                content.append('<p>' + json[i].title + '</p>');
-//                item.append(content);
-//                calendarContainer.append(item);
-//
-//            }
-//
-//            slideDiv(calendarContainer, textMessageCount);
-//
-//        });
-//    }, interval * 4 - 1000 * 30);
+    setTimeout(function () {
+        $.get('/calendar', function (json) {
+            json = json.items;
+            console.log(json);
+            var calendarContainer = $('.calendar-content');
+            for (var i = 0; i < json.length; i++) {
+                var item = $('<li style="display: none"></li>');
+
+                var footprint = $('<div></div>').addClass('footprint');
+                footprint.append('<img src="/assets/elephant.jpg">');
+                footprint.append('<div> ' + json[i].creator.displayName + '发布于' + timeSince(json[i].created) + '</div>');
+                item.append(footprint);
+                var content = $('<div class="calendar"> </div>');
+                content.append('<p>从' + json[i].start.dateTime + '</p>')
+                if (json[i].location !== undefined) {
+                    content.append('<p>地点：' + json[i].location + '</p>');
+                }
+                content.append('<p>' + json[i].summary + '</p>');
+                if (json[i].description !== undefined) {
+                    content.append('<p>描述：' + json[i].description + '</p>');
+                }
+                item.append(content);
+                calendarContainer.append(item);
+
+            }
+
+            slideDiv(calendarContainer, textMessageCount);
+
+        });
+    }, interval * 4 - 1000 * 30);
 
 });
