@@ -46,7 +46,7 @@ $(document).ready(function () {
             var containers = $('.main-container').children();
             hideAllChildren('.main-container');
             var nextContainer = containers[nextChildToShow] || containers[0];
-            $(nextContainer).show('slow');
+            $(nextContainer).show('clip');
 
             if (nextChildToShow === containers.length) {
                 nextChildToShow = 0;
@@ -171,11 +171,11 @@ $(document).ready(function () {
                 footprint.append('<div> ' + json[i].creator.displayName + '发布于' + timeSince(json[i].created) + '</div>');
                 item.append(footprint);
                 var content = $('<div class="calendar"> </div>');
-                content.append('<p>从' + json[i].start.dateTime + '</p>')
+                content.append('<i class="icon-time"></i><p>从' + json[i].start.dateTime + '</p>')
                 if (json[i].location !== undefined) {
-                    content.append('<p>地点：' + json[i].location + '</p>');
+                    content.append('<i class="icon-pushpin"></i><p>地点：' + json[i].location + '</p>');
                 }
-                content.append('<p>' + json[i].summary + '</p>');
+                content.append('<i class="icon-star"></i><p>' + json[i].summary + '</p>');
                 if (json[i].description !== undefined) {
                     content.append('<p>描述：' + json[i].description + '</p>');
                 }

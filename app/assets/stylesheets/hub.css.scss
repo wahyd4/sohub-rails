@@ -13,12 +13,24 @@ body {
   color: #ffffff;
 }
 
-.main-container{
-  div{
-    i{
+.main-container {
+  div {
+    i {
       margin: 50px auto auto 60px;
       position: absolute;
       color: #FDA343;
+      line-height: 0;
+      margin-right: 20px;
+      margin-top: 0.75em;
+    }
+  }
+  .calendar-content {
+    li {
+      .calendar {
+        p {
+          margin-left: 15px;
+        }
+      }
     }
   }
 }
