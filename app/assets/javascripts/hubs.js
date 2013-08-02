@@ -29,7 +29,7 @@ $(document).ready(function () {
             }
             //show the next children nodes
             for (var i = flag; i < flag + textMessageCount; i++) {
-                $(children[i]).show('slow');
+                $(children[i]).fadeIn('slow');
             }
             //flag +3
             flag = flag + textMessageCount;
@@ -187,6 +187,6 @@ $(document).ready(function () {
             slideDiv(calendarContainer, textMessageCount);
 
         });
-    }, interval * 4 - 1000 * 30);
+    }, interval * 0.55 - 1000 * 30);
 
 });
