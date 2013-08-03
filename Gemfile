@@ -43,6 +43,7 @@ gem 'rest-client'
 gem 'httparty'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'rmagick', '2.13.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
