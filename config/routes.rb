@@ -26,4 +26,6 @@ SohubRails::Application.routes.draw do
   get '/weibo', to: "weibo#index"
 
   resources :identities
+
+  resources :images
 end

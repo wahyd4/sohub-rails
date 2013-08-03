@@ -1,0 +1,7 @@
+= form_for(@image) do |f|
+  div class="field"
+    = f.label :source
+    = f.file_field :source
+  div class="actions"
+    = f.submit 'Make a image'
+    = link_to 'Nevermind', images_path, class: 'button'

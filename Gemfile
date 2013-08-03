@@ -41,6 +41,8 @@ gem 'omniauth-google-oauth2'
 gem 'bcrypt-ruby'
 gem 'rest-client'
 gem 'httparty'
+gem 'paperclip'
+gem 'aws-sdk'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -59,7 +61,7 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-group :development,:test do
+group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-mocks'
 end

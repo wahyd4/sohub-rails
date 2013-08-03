@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130801033831) do
+ActiveRecord::Schema.define(version: 20130803012411) do
 
   create_table "Messages", force: true do |t|
     t.string   "to_user"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20130801033831) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "source_file_name"
+    t.string   "source_content_type"
+    t.integer  "source_file_size"
+    t.datetime "source_updated_at"
   end
 
   create_table "users", force: true do |t|
