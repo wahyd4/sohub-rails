@@ -27,5 +27,5 @@ SohubRails::Application.routes.draw do
 
   resources :identities
 
-  resources :images
+  #resources :images
 end
