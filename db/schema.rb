@@ -11,19 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130803012411) do
-
-  create_table "Messages", force: true do |t|
-    t.string   "to_user"
-    t.string   "from_user"
-    t.datetime "create_time"
-    t.string   "message_type"
-    t.text     "content"
-    t.integer  "message_id"
-    t.string   "picture_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20130804142625) do
 
   create_table "credentials", force: true do |t|
     t.string   "oauth_provider"
@@ -50,6 +38,18 @@ ActiveRecord::Schema.define(version: 20130803012411) do
     t.datetime "source_updated_at"
   end
 
+  create_table "messages", force: true do |t|
+    t.string   "to_user"
+    t.string   "user_id"
+    t.datetime "create_time"
+    t.string   "message_type"
+    t.text     "content"
+    t.integer  "message_id"
+    t.string   "picture_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "password"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20130803012411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+    t.string   "display_name"
   end
 
 end

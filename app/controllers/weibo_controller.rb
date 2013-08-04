@@ -13,6 +13,7 @@ class WeiboController < ApplicationController
         when 423
           raise Exception
         else
+          Rails.logger.error "======== "+response.to_s
           response.return!(request, result, &block)
       end
     }
