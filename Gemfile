@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'http://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 ruby '2.0.0'
@@ -44,6 +44,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 gem 'rails_12factor'
 gem 'nokogiri'
+gem 'actionpack-xml_parser'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
