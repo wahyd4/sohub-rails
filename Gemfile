@@ -4,8 +4,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -43,7 +41,6 @@ gem 'rest-client'
 gem 'httparty'
 gem 'paperclip'
 gem 'aws-sdk'
-gem 'rmagick', '2.13.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -65,4 +62,5 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-mocks'
+  gem 'sqlite3'
 end
