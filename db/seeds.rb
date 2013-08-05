@@ -8,7 +8,7 @@
 
 Message.create content: '如果你的代码易于阅读，那么代码中bug也将会很', to_user: 'gh_418963502e3c',
                user_id:'oGHz6jqRjNHwBo_a_s', message_type: 'text',
-               create_time: DateTime.now, message_id: 5893056478695514624
+               create_time: DateTime.now, message_id: 58930564714624
 
 Message.create content: '因此，如果项目中有多人参与，采取一个有共识的编码风格约定非常有必要。', to_user: 'gh_418963502e3c',
                user_id:'oGHz6jqRjNHwBo_a_s', message_type: 'text',
