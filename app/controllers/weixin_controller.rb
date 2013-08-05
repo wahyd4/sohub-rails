@@ -2,6 +2,8 @@ require 'weixin_service'
 
 class WeixinController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token, :only => [:query]
+
   include WeixinService
 
   def verify
