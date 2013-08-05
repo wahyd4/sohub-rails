@@ -12,7 +12,7 @@ class WeixinController < ApplicationController
   end
 
   def query
-    Rails.logger.info "[XML]===="+ request.body.to_s
+    Rails.logger.info "[XML]===="+ request.raw_post.to_s
     message = parse_xml_to_hash(params[:xml])
     case message.message_type
       when 'text'
