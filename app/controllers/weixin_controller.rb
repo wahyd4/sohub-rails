@@ -12,8 +12,8 @@ class WeixinController < ApplicationController
   end
 
   def query
-    message = parse_xml_to_hash(params[:xml])
     Rails.logger.info "[XML]===="+ params[:xml].to_s
+    message = parse_xml_to_hash(params[:xml])
     case message.message_type
       when 'text'
         result = reply_text_message message, "Hello Forkers!"
