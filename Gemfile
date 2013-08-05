@@ -42,6 +42,7 @@ gem 'rest-client'
 gem 'httparty'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'rails_12factor'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
