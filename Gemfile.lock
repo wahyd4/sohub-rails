@@ -201,6 +201,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 1.2)
   jquery-rails
+  nokogiri
   omniauth
   omniauth-google-oauth2
   omniauth-identity
