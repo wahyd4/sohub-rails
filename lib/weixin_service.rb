@@ -1,7 +1,7 @@
 module WeixinService
 
   def reply_text_message(message, content)
-    reply_message = build_reply(message)
+    reply_message = build_reply(message, 'text')
     reply_message.content = content
 
     builder = Nokogiri::XML::Builder.new do |xml|
@@ -17,12 +17,12 @@ module WeixinService
     builder.to_xml
   end
 
-  def build_reply(message)
+  def build_reply(message, message_type)
     reply_message = Message.new
     reply_message.create_time = Time.now.to_i
     reply_message.from_user = message.to_user
     reply_message.to_user = message.from_user
-    reply_message.message_type = message.message_type
+    reply_message.message_type = message_type
     reply_message
   end
 
