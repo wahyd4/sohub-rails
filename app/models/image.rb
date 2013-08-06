@@ -10,4 +10,11 @@ class Image < ActiveRecord::Base
   def store_from_url(url)
     self.source = open(url)
   end
+
+  def self.store_image(url)
+    image = Image.new
+    image.store_from_url url
+    image.save
+    image
+  end
 end

@@ -45,7 +45,12 @@ module WeixinService
     message.message_type = xml[:MsgType]
     message.content = xml[:Content]
     message.message_id = xml[:MsgId]
+    if xml[:PicUrl]
+      image = Image.store_image message.picture_url
+      message.picture_url = image.source.url
+    end
     message.save
     message
   end
+
 end
