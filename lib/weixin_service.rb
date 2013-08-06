@@ -4,7 +4,7 @@ module WeixinService
     reply_message = build_reply(message, 'text')
     reply_message.content = content
 
-    builder = Nokogiri::XML::Builder.new do |xml|
+    builder = Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
       xml.xml {
         xml.FromUserName reply_message.from_user
         xml.ToUserName reply_message.to_user

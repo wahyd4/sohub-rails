@@ -16,7 +16,7 @@ class WeixinController < ApplicationController
     message = parse_xml_to_hash params[:xml]
     case message.message_type
       when 'text'
-        content = "\u6d88\u606f\u53d1\u9001\u6210\u529f\uff01";
+        content = helper.t('hello');
       when 'image'
         content = "图片已经成功保存"
       else
