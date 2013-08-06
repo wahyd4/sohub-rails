@@ -2,7 +2,7 @@ module WeixinService
 
   def reply_text_message(message, content)
     reply_message = build_reply(message)
-    reply_message.content = content
+    reply_message.content = 'test me!'
 
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.xml {
