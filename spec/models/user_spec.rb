@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it 'should return the i18n words' do
+    I18n.t('hello').should == '你好'
+  end
 end
