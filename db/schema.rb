@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805114606) do
+ActiveRecord::Schema.define(version: 20130806011143) do
 
   create_table "credentials", force: true do |t|
     t.string   "oauth_provider"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20130805114606) do
   create_table "messages", force: true do |t|
     t.string   "to_user"
     t.string   "user_id"
-    t.datetime "create_time"
+    t.integer  "create_time",  limit: 8
     t.string   "message_type"
     t.text     "content"
     t.integer  "message_id",   limit: 8

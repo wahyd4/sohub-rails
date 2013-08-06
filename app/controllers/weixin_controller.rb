@@ -12,7 +12,7 @@ class WeixinController < ApplicationController
   end
 
   def query
-    Rails.logger.info "[3]===="+ request.request_parameters.to_s
+    Rails.logger.info "[3]===="+ params[:xml]
     weixin_params= request.request_parameters
     message = parse_xml_to_hash(weixin_params[:xml])
     case message.message_type
