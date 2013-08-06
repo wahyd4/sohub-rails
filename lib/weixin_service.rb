@@ -2,7 +2,7 @@ module WeixinService
 
   def reply_text_message(message, content)
     reply_message = build_reply(message)
-    reply_message.content = 'test me!'
+    reply_message.content = content
 
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.xml {
@@ -23,7 +23,7 @@ module WeixinService
     reply_message.from_user = message.to_user
     reply_message.to_user = message.from_user
     reply_message.message_type = message.message_type
-    reply_message.save
+    reply_message
   end
 
   def parse_xml(xml_string)
