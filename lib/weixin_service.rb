@@ -31,7 +31,6 @@ module WeixinService
     message = Message.new
     message.from_user = xml.xpath('//FromUserName').text
     message.to_user = xml.xpath('//ToUserName').text
-    message.create_time = xml.xpath('//CreateTime').text
     message.message_type = xml.xpath('//MsgType').text
     message.content = xml.xpath('//Content').text
     message.message_id = xml.xpath('//MsgId').text
@@ -43,7 +42,6 @@ module WeixinService
     message = Message.new
     message.from_user = xml[:FromUserName]
     message.to_user = xml[:ToUserName]
-    message.create_time = xml[:CreateTime]
     message.message_type = xml[:MsgType]
     message.content = xml[:Content]
     message.message_id = xml[:MsgId]
