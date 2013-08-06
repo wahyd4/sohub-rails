@@ -23,7 +23,7 @@ module WeixinService
     reply_message.from_user = message.to_user
     reply_message.to_user = message.from_user
     reply_message.message_type = message.message_type
-    reply_message
+    reply_message.save
   end
 
   def parse_xml(xml_string)

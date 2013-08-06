@@ -26,6 +26,7 @@ SohubRails::Application.routes.draw do
   get '/weibo', to: "weibo#index"
 
   get '/weixin/query', to: "weixin#verify"
+
   post '/weixin/query', to: "weixin#query"
 
   resources :identities
