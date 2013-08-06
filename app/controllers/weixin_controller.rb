@@ -16,14 +16,13 @@ class WeixinController < ApplicationController
     message = parse_xml_to_hash params[:xml]
     case message.message_type
       when 'text'
-        content = I18n.t('hello');
+        content = I18n.t('weixin.success.text')
       when 'image'
-        content = "图片已经成功保存"
+        content = I18n.t('weixin.success.image')
       else
-        content = "对不起，你发的消息我不能分辨"
+        content = I18n.t('weixin.success.unknown')
     end
     result = reply_text_message message, content
-    Rails.logger.info "result===" +result.to_s
     render xml: result
   end
 

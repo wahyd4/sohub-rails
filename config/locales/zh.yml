@@ -1,2 +1,8 @@
 zh:
   hello: '你好'
+  weixin:
+    success:
+      text: '信息发布成功'
+      notice: '通知信息发布成功'
+      image: '图片信息发布成功'
+      unknown: '对不起，你发布的信息我还不认识哦'
