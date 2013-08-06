@@ -46,7 +46,7 @@ module WeixinService
     message.content = xml[:Content]
     message.message_id = xml[:MsgId]
     if xml[:PicUrl]
-      image = Image.store_image message.picture_url
+      image = Image.store_image xml[:PicUrl]
       message.picture_url = image.source.url
     end
     message.save
