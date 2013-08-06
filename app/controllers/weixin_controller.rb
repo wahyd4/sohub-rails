@@ -16,13 +16,13 @@ class WeixinController < ApplicationController
     message = parse_xml_to_hash params[:xml]
     case message.message_type
       when 'text'
-        result = reply_text_message message, "Hello Forkers!"
+        content ="Hello Forkers!";
       when 'image'
-        result = reply_text_message message, "Image"
+        content ="Image"
       else
-        result = reply_text_message message, "对不起，你发的消息我不能分辨"
+        content ="对不起，你发的消息我不能分辨"
     end
-    render xml: result
+    render xml: reply_text_message(message, content)
   end
 
 end
