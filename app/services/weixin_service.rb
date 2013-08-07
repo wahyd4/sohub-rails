@@ -2,6 +2,8 @@ require 'weixin/text_util'
 
 class WeixinService
 
+  include TextUtil
+
   def handle_text(content)
     result = nil
     if is_help(content)

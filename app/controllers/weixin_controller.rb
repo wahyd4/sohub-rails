@@ -15,7 +15,7 @@ class WeixinController < ApplicationController
     weixin_service = WeixinService.new
     case message.message_type
       when 'text'
-        weixin_service.handle_text message.content
+        content = weixin_service.handle_text message.content
       when 'image'
         content = I18n.t('weixin.success.image')
       else
