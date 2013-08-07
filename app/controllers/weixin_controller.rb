@@ -14,9 +14,10 @@ class WeixinController < ApplicationController
   def query
     Rails.logger.info "[3]===="+ params[:xml].to_s
     message = parse_xml_to_hash params[:xml]
+    weixin_service = WeixinService.new
     case message.message_type
       when 'text'
-        content = I18n.t('weixin.success.text')
+        weixin_service.handle_text message.content
       when 'image'
         content = I18n.t('weixin.success.image')
       else
