@@ -4,8 +4,6 @@ class WeixinController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, :only => [:query]
 
-  include WeixinService
-
   def verify
     echo_str = params[:echostr]
     render text: echo_str

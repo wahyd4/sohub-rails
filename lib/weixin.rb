@@ -1,4 +1,4 @@
-module WeixinService
+module Weixin
 
   def reply_text_message(message, content)
     reply_message = build_reply(message, 'text')
