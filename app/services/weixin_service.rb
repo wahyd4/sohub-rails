@@ -16,4 +16,5 @@ class WeixinService
       result = I18n.t('weixin.dirty')
     end
   end
+
 end

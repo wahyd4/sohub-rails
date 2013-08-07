@@ -1,4 +1,4 @@
-require 'weixin_service'
+require 'weixin'
 
 class WeixinController < ApplicationController
 
