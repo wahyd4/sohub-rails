@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'http://ruby.taobao.org'
+#source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 ruby '2.0.0'
@@ -68,4 +68,5 @@ group :development, :test do
   gem 'rspec-mocks'
   gem 'sqlite3'
   gem 'simplecov'
+  gem 'debugger'
 end
