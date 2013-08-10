@@ -23,6 +23,7 @@ class WeixinController < ApplicationController
       else
         content = I18n.t('weixin.success.unknown')
     end
+    message.save!
     result = reply_text_message message, content
     render xml: result
   end

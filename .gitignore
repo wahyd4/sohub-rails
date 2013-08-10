@@ -22,3 +22,5 @@
 /temp.xml
 
 /public/assets/**
+
+/coverage/**

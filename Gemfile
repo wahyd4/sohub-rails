@@ -67,4 +67,5 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-mocks'
   gem 'sqlite3'
+  gem 'simplecov'
 end

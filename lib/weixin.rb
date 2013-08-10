@@ -34,7 +34,6 @@ module Weixin
     message.message_type = xml.xpath('//MsgType').text
     message.content = xml.xpath('//Content').text
     message.message_id = xml.xpath('//MsgId').text
-    message.save
     message
   end
 
@@ -49,7 +48,6 @@ module Weixin
       image = Image.store_image xml[:PicUrl]
       message.picture_url = image.source.url
     end
-    message.save
     message
   end
 
