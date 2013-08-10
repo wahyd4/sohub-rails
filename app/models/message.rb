@@ -13,4 +13,17 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def to_notice
+    self.message_type = 'notice'
+  end
+
+  def store_message
+    if self.is_need_to_store
+      self.save
+      self
+    else
+      nil
+    end
+  end
+
 end

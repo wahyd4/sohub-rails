@@ -17,13 +17,13 @@ class WeixinController < ApplicationController
     weixin_service = WeixinService.new
     case message.message_type
       when 'text'
-        content = weixin_service.handle_text message.content
+        content = weixin_service.handle_text message
       when 'image'
         content = I18n.t('weixin.success.image')
       else
         content = I18n.t('weixin.success.unknown')
     end
-    message.save!
+    message.store_message
     result = reply_text_message message, content
     render xml: result
   end

@@ -4,7 +4,8 @@ class WeixinService
 
   include TextUtil
 
-  def handle_text(content)
+  def handle_text(message)
+    content = message.content
     result = nil
     if is_help(content)
       result = I18n.t('weixin.help')
@@ -13,7 +14,8 @@ class WeixinService
     elsif is_normal_message(content)
       result = I18n.t('weixin.success.text')
     elsif is_notice(content)
-      result = I18n.t('weixin.success.text')
+      message.to_notice
+      result = I18n.t('weixin.success.notice')
     else
       result = I18n.t('weixin.dirty')
     end

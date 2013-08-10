@@ -28,4 +28,34 @@ describe Message do
     end
   end
 
+  describe 'change normal message to notice' do
+    it 'message type should be notice' do
+      message = Message.new
+      message.message_type='text'
+      message.to_notice
+      message.message_type.should == 'notice'
+    end
+  end
+
+  describe 'store the valid message ' do
+    it 'should store normal text message' do
+      lambda do
+        message = Message.new
+        message.message_type='text'
+        message.content='-你好'
+        result = message.store_message
+      end.should change(Message, :count).by(1)
+
+    end
+
+    it 'should not store a help command' do
+      lambda do
+        message = Message.new
+        message.message_type='text'
+        message.content='help'
+        result = message.store_message
+      end.should change(Message, :count).by(0)
+    end
+  end
+
 end
