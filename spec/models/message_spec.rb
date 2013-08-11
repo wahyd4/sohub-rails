@@ -90,6 +90,20 @@ describe Message do
     end
   end
 
+  describe 'test fill from user attribute' do
+    it 'should fill from user value but not save the user obj' do
+      lambda do
+        message = Message.new
+        message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Nick').id
+        message.message_type='text'
+        message.content='-你好这是一条普通消息'
+        message.fill_from_user_value
+        message.from_user.should == 'Nick'
+      end.should change(Message, :count).by(0)
+
+    end
+
+  end
 
 
 end

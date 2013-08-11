@@ -35,7 +35,7 @@ class Message < ActiveRecord::Base
   end
 
   def fill_from_user_value
-    update_attributes from_user: User.find_by_id(self.user_id).front_end_display_name
+    self.from_user = User.find_by_id(self.user_id).front_end_display_name
   end
 
 
