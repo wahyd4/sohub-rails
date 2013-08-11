@@ -20,7 +20,7 @@ class Message < ActiveRecord::Base
   def store_message
     if self.is_need_to_store
       replace_symbol! self.content
-      fill_from_user
+      self.from_user = self.user.front_end_display_name
       self.save
       self
     else
