@@ -40,7 +40,7 @@ module Weixin
   def parse_xml_to_hash(xml)
     message = Message.new
     message.from_user = xml[:FromUserName]
-    message.user_id = User.user_with_weixin_id(xml[:FromUserName]).user_id
+    message.user_id = User.user_with_weixin_id(xml[:FromUserName]).id
     message.to_user = xml[:ToUserName]
     message.message_type = xml[:MsgType]
     message.content = xml[:Content]
