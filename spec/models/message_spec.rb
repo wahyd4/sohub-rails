@@ -98,8 +98,7 @@ describe Message do
         message.message_type='text'
         message.content='-你好这是一条普通消息'
         message.fill_from_user
-        message.from_user.should == 'Nick'
-      end.should change(Message, :count).by(1)
+      end.should change(Message, :count).by(0)
 
     end
 
