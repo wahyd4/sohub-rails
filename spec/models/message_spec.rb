@@ -67,15 +67,15 @@ describe Message do
       result.content.should=='this a normal message'
     end
 
-    it 'when store a message should repalce from user name if the user has been set a display name' do
-      message = Message.new
-      message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom').id
-      message.message_type='text'
-      message.content='+通知消息'
-      result = message.store_message
-      result.from_user.should == 'Tom'
+    #it 'when store a message should repalce from user name if the user has been set a display name' do
+    #  message = Message.new
+    #  message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom').id
+    #  message.message_type='text'
+    #  message.content='+通知消息'
+    #  result = message.store_message
+    #  result.from_user.should == 'Tom'
+    #end
 
-    end
   end
 
   describe 'set user name' do
