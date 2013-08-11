@@ -42,6 +42,7 @@ describe Message do
       lambda do
         message = Message.new
         message.message_type='text'
+        message.user_id = User.create(weixin_user_id: '4r345sdf').id
         message.content='-你好'
         result = message.store_message
       end.should change(Message, :count).by(1)
@@ -60,9 +61,20 @@ describe Message do
     it 'should replace special symbol when store a message' do
       message = Message.new
       message.message_type='text'
+      message.user_id = User.create(weixin_user_id: '4r345sdf').id
       message.content='-this a normal message'
       result = message.store_message
       result.content.should=='this a normal message'
+    end
+
+    it 'when store a message should repalce from user name if the user has been set a display name' do
+      message = Message.new
+      message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom').id
+      message.message_type='text'
+      message.content='+通知消息'
+      result = message.store_message
+      result.from_user.should == 'Tom'
+
     end
   end
 
@@ -77,5 +89,7 @@ describe Message do
 
     end
   end
+
+
 
 end

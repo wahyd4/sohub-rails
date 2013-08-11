@@ -26,4 +26,8 @@ class User < ActiveRecord::Base
     update_attributes display_name: name
   end
 
+  def front_end_display_name
+    self.display_name == nil ? I18n.t('user.defaultName') : self.display_name
+  end
+
 end

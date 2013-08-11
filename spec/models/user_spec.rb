@@ -25,4 +25,20 @@ describe User do
 
   end
 
+  describe 'get user display name' do
+    it 'should get a user display name for a user who has been set display name' do
+      user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+      name = user.front_end_display_name
+      name.should == 'Tom'
+    end
+
+    it 'should return default display name for a user who did not set display name' do
+      user = User.create(weixin_user_id: '4r345sdf')
+      name = user.front_end_display_name
+      name.should == '无名氏'
+
+    end
+
+  end
+
 end

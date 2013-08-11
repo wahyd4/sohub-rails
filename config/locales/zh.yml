@@ -11,3 +11,5 @@ zh:
     menu:  '菜单：\n 1. 设置用户名\n 2.选择盒子\n'
     dirty: '随便发垃圾消息的孩子，不乖哦！试试help(h),或者menu(m)吧'
     systemErr: '系统操作失败,请确认信息输入正确后重试！'
+  user:
+    defaultName: '无名氏'
