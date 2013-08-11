@@ -66,7 +66,7 @@ $(document).ready(function () {
 
                 var footprint = $('<div></div>').addClass('footprint');
                 footprint.append('<img src="/assets/elephant.jpg">');
-                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].create_time) + '</div>');
+                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
                 item.append(footprint);
 
                 if (i === 0) {
@@ -109,7 +109,7 @@ $(document).ready(function () {
 
                 var footprint = $('<div></div>').addClass('footprint');
                 footprint.append('<img src="/assets/elephant.jpg">');
-                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].create_time) + '</div>');
+                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
                 item.append(footprint);
                 item.append('<p>' + json[i].content + '</p>');
                 noticeContainer.append(item);
@@ -187,6 +187,6 @@ $(document).ready(function () {
             slideDiv(calendarContainer, textMessageCount);
 
         });
-    }, interval * 0.55 - 1000 * 30);
+    }, interval * 4 - 1000 * 30);
 
 });
