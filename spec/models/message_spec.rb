@@ -53,6 +53,7 @@ describe Message do
       lambda do
         message = Message.new
         message.message_type='text'
+        message.user_id = User.create(weixin_user_id: '4r345sdf').id
         message.content='help'
         result = message.store_message
       end.should change(Message, :count).by(0)
@@ -67,14 +68,14 @@ describe Message do
       result.content.should=='this a normal message'
     end
 
-    #it 'when store a message should repalce from user name if the user has been set a display name' do
-    #  message = Message.new
-    #  message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom').id
-    #  message.message_type='text'
-    #  message.content='+通知消息'
-    #  result = message.store_message
-    #  result.from_user.should == 'Tom'
-    #end
+    it 'when store a message should repalce from user name if the user has been set a display name' do
+      message = Message.new
+      message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom').id
+      message.message_type='text'
+      message.content='+通知消息'
+      result = message.store_message
+      result.from_user.should == 'Tom'
+    end
 
   end
 
@@ -89,20 +90,5 @@ describe Message do
 
     end
   end
-
-  describe 'test fill from user attribute' do
-    it 'should fill from user value but not save the user obj' do
-      lambda do
-        message = Message.new
-        message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Nick').id
-        message.message_type='text'
-        message.content='-你好这是一条普通消息'
-        message.fill_from_user
-      end.should change(Message, :count).by(0)
-
-    end
-
-  end
-
 
 end
