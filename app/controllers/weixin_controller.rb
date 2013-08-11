@@ -23,8 +23,9 @@ class WeixinController < ApplicationController
       else
         content = I18n.t('weixin.success.unknown')
     end
+    response_message = message.dup
     message.store_message
-    result = reply_text_message message, content
+    result = reply_text_message response_message, content
     Rails.logger.info "Sending result=======" + result.to_s
     render xml: result
   end

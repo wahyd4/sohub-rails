@@ -7,6 +7,8 @@ class Message < ActiveRecord::Base
 
   delegate :front_end_display_name, to: :user
 
+  after_create :fill_from_user
+
   def is_need_to_store
     if message_type == 'image' || is_normal_message(content)||is_notice(content)
       true
@@ -20,7 +22,6 @@ class Message < ActiveRecord::Base
   end
 
   def store_message
-    self.from_user= self.front_end_display_name
     if self.is_need_to_store
       replace_symbol! self.content
       self.save
@@ -35,4 +36,9 @@ class Message < ActiveRecord::Base
     user = User.find_by_id self.user_id
     user.set_display_name self.content
   end
+
+  def fill_from_user
+    update_attributes! from_user: self.front_end_display_name
+  end
+
 end
