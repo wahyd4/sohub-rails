@@ -35,7 +35,7 @@ class Message < ActiveRecord::Base
   end
 
   def fill_from_user
-    self.from_user = User.find_by_id(self.user_id).front_end_display_name
+    self.from_user = self.user.front_end_display_name
   end
 
 
