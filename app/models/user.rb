@@ -12,4 +12,18 @@ class User < ActiveRecord::Base
       user.name = auth["info"]["name"]
     end
   end
+
+  def self.user_with_weixin_id(weixin_user_id)
+    user = User.find_by_weixin_user_id weixin_user_id
+    if user
+      user
+    else
+      user = User.create weixin_user_id: weixin_user_id
+    end
+  end
+
+  def set_display_name(name)
+    update_attributes display_name: name
+  end
+
 end

@@ -27,4 +27,10 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def set_user_name
+    self.content.gsub!(/[=]/, '')
+    user = User.find_by_id self.user_id
+    user.set_display_name self.content
+  end
+
 end

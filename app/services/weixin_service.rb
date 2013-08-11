@@ -16,9 +16,16 @@ class WeixinService
     elsif is_notice(content)
       message.to_notice!
       result = I18n.t('weixin.success.notice')
+    elsif is_set_name content
+      result = set_user_display_name message
     else
       result = I18n.t('weixin.dirty')
     end
+  end
+
+  def set_user_display_name(message)
+    message.set_user_name
+    I18n.t('weixin.success.setName')
   end
 
 end

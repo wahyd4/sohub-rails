@@ -2,6 +2,7 @@ zh:
   hello: '你好'
   weixin:
     success:
+      setName: '设置用户名成功'
       text: '信息发布成功'
       notice: '通知信息发布成功'
       image: '图片信息发布成功'

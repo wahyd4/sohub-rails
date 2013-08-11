@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130806050024) do
+ActiveRecord::Schema.define(version: 20130811015653) do
 
   create_table "credentials", force: true do |t|
     t.string   "oauth_provider"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20130806050024) do
     t.datetime "updated_at"
     t.string   "email"
     t.string   "display_name"
+    t.string   "weixin_user_id"
   end
 
 end

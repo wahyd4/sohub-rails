@@ -66,4 +66,16 @@ describe Message do
     end
   end
 
+  describe 'set user name' do
+    it 'should set user name success' do
+      message = Message.new
+      message.user_id = User.create(weixin_user_id: '4r345sdf').id
+      message.message_type='text'
+      message.content='=用户名'
+      message.set_user_name
+      User.find_by_display_name('用户名').should_not be_nil
+
+    end
+  end
+
 end

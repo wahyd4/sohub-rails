@@ -27,4 +27,14 @@ describe WeixinService do
     message.message_type == 'notce'
   end
 
+  it 'should return the set name success text' do
+    message = Message.new
+    message.message_type='text'
+    message.user_id = User.create(weixin_user_id: '4r345sdf').id
+    message.content='=新的用户名'
+    result = WeixinService.new.handle_text message
+    result.should == '设置用户名成功'
+    User.find_by_display_name('新的用户名').should_not == nil
+  end
+
 end
