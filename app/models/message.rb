@@ -37,8 +37,8 @@ class Message < ActiveRecord::Base
 
   def fill_from_user
     #update_attributes! from_user: self.user.front_end_display_name
-    update_attributes! from_user: 'Test'
-
+    self.from_user = 'Nihao'
+    self.save
   end
 
 
