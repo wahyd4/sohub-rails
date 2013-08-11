@@ -13,12 +13,13 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def to_notice
+  def to_notice!
     self.message_type = 'notice'
   end
 
   def store_message
     if self.is_need_to_store
+      replace_symbol! self.content
       self.save
       self
     else

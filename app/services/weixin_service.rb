@@ -14,7 +14,7 @@ class WeixinService
     elsif is_normal_message(content)
       result = I18n.t('weixin.success.text')
     elsif is_notice(content)
-      message.to_notice
+      message.to_notice!
       result = I18n.t('weixin.success.notice')
     else
       result = I18n.t('weixin.dirty')

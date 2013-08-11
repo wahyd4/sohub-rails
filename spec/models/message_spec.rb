@@ -32,7 +32,7 @@ describe Message do
     it 'message type should be notice' do
       message = Message.new
       message.message_type='text'
-      message.to_notice
+      message.to_notice!
       message.message_type.should == 'notice'
     end
   end
@@ -55,6 +55,14 @@ describe Message do
         message.content='help'
         result = message.store_message
       end.should change(Message, :count).by(0)
+    end
+
+    it 'should replace special symbol when store a message' do
+      message = Message.new
+      message.message_type='text'
+      message.content='-this a normal message'
+      result = message.store_message
+      result.content.should=='this a normal message'
     end
   end
 

@@ -53,4 +53,12 @@ describe TextUtil do
       is_set_name('==错误的设置名字').should == false
     end
   end
+
+  describe 'replace special symbol' do
+    it 'should replace special symbol' do
+      result = replace_symbol!('-你好')
+      result.should == '你好'
+
+    end
+  end
 end

@@ -18,4 +18,9 @@ module TextUtil
   def is_set_name(content)
     content.match('^[=]{1}[^=+-]*$')!=nil
   end
+
+  def replace_symbol!(content)
+    content.gsub!(/[-+=]/, '')
+  end
+
 end
