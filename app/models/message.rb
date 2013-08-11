@@ -5,8 +5,6 @@ class Message < ActiveRecord::Base
 
   include TextUtil
 
-  after_create :fill_from_user
-
   def is_need_to_store
     if message_type == 'image' || is_normal_message(content)||is_notice(content)
       true
@@ -20,6 +18,7 @@ class Message < ActiveRecord::Base
   end
 
   def store_message
+    self.from_user = 'testMe'
     if self.is_need_to_store
       replace_symbol! self.content
       self.save
@@ -36,9 +35,8 @@ class Message < ActiveRecord::Base
   end
 
   def fill_from_user
-    #update_attributes! from_user: self.user.front_end_display_name
-    self.from_user = 'Nihao'
-    self.save
+    update_attributes! from_user: self.user.front_end_display_name
+
   end
 
 
