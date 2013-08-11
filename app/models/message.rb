@@ -18,7 +18,7 @@ class Message < ActiveRecord::Base
   end
 
   def store_message
-    self.from_user = 'testMe'
+    from_user = 'testMe'
     if self.is_need_to_store
       replace_symbol! self.content
       self.save
