@@ -42,6 +42,12 @@ describe TextUtil do
     it 'should return false for not a notice message' do
       is_notice('++不是通知').should == false
     end
+
+    it 'should return false for just a +' do
+      is_notice('+').should == false
+
+    end
+
   end
 
   describe 'weixin actions' do

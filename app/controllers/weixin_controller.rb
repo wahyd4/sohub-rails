@@ -25,6 +25,7 @@ class WeixinController < ApplicationController
     end
     message.store_message
     result = reply_text_message message, content
+    Rails.logger.info "Sending result=======" + result.to_s
     render xml: result
   end
 

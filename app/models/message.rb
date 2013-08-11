@@ -19,7 +19,7 @@ class Message < ActiveRecord::Base
 
   def store_message
     if self.is_need_to_store
-      self.fill_from_user_value
+      self.fill_from_user
       replace_symbol! self.content
       self.save
       self
@@ -34,7 +34,7 @@ class Message < ActiveRecord::Base
     user.set_display_name self.content
   end
 
-  def fill_from_user_value
+  def fill_from_user
     self.from_user = User.find_by_id(self.user_id).front_end_display_name
   end
 

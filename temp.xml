@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <xml>
-  <FromUserName/>
-  <ToUserName/>
-  <CreateTime/>
-  <MsgType/>
-  <Content>&#x5BF9;&#x4E0D;&#x8D77;&#xFF0C;&#x4F60;&#x53D1;&#x7684;&#x6D88;&#x606F;&#x6211;&#x4E0D;&#x80FD;&#x5206;&#x8FA8;</Content>
+  <FromUserName>gh_418963502e3c</FromUserName>
+  <ToUserName>fsdf</ToUserName>
+  <CreateTime></CreateTime>
+  <MsgType>text</MsgType>
+  <Content>-你好</Content>
   <FuncFlag>0</FuncFlag>
 </xml>

@@ -8,15 +8,15 @@ module TextUtil
   end
 
   def is_normal_message(content)
-    content.match('^[-]{1}[^-+]*$') != nil
+    content.match('^[-]{1}[^-+]+$') != nil
   end
 
   def is_notice(content)
-    content.match('^[+]{1}[^+-]*$')!=nil
+    content.match('^[+]{1}[^+-]+$')!=nil
   end
 
   def is_set_name(content)
-    content.match('^[=]{1}[^=+-]*$')!=nil
+    content.match('^[=]{1}[^=+-]+$')!=nil
   end
 
   def replace_symbol!(content)
