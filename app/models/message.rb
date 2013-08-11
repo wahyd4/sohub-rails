@@ -19,8 +19,8 @@ class Message < ActiveRecord::Base
 
   def store_message
     if self.is_need_to_store
-      #self.fill_from_user
       replace_symbol! self.content
+      fill_from_user
       self.save
       self
     else
