@@ -20,7 +20,7 @@ module TextUtil
   end
 
   def replace_symbol!(content)
-    content.gsub!(/[-+=]/, '') if content! = nil
+    content.gsub!(/[-+=]/, '') if content!= nil
   end
 
 end
