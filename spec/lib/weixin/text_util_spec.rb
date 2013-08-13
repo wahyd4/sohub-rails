@@ -66,5 +66,11 @@ describe TextUtil do
       result.should == '你好'
 
     end
+
+    it 'should return nil for input is nil' do
+      result = replace_symbol!(nil)
+      result.should == nil
+
+    end
   end
 end
