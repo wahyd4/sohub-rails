@@ -21,5 +21,7 @@ module SohubRails
     config.i18n.default_locale = :zh
 
     config.middleware.insert_after ActionDispatch::ParamsParser, ActionDispatch::XmlParamsParser
+
+    config.cache_store = :dalli_store
   end
 end

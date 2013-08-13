@@ -45,6 +45,10 @@ gem 'aws-sdk'
 gem 'rails_12factor'
 gem 'nokogiri'
 gem 'actionpack-xml_parser'
+gem 'rack-cache'
+gem 'dalli'
+gem 'kgio'
+gem 'memcachier'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -20,7 +20,9 @@ SohubRails::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
+
+  config.static_cache_control = "public, max-age=2592000"
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -87,5 +89,12 @@ SohubRails::Application.configure do
           :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
       }
+  }
+
+  client = Dalli::Client.new
+  config.action_dispatch.rack_cache = {
+      :metastore => client,
+      :entitystore => client,
+      :allow_reload => false
   }
 end
