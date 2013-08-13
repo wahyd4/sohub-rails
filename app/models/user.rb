@@ -31,4 +31,19 @@ class User < ActiveRecord::Base
     self.display_name == nil ? I18n.t('user.defaultName') : self.display_name
   end
 
+  def set_avatar
+    avatar_image = image_messages.last
+    if avatar_image
+      update_attributes avatar: avatar_image.picture_url
+      avatar_image.destroy!
+      true
+    else
+      false
+    end
+  end
+
+  def image_messages
+    self.messages.where(message_type: 'image')
+  end
+
 end

@@ -73,4 +73,17 @@ describe TextUtil do
 
     end
   end
+
+  describe 'set avatar' do
+    it 'should return true' do
+      result = is_set_avatar('头像')
+      result.should == true
+    end
+
+    it 'should return false for "头 像"' do
+      result = is_set_avatar('头 像')
+      result.should == false
+    end
+
+  end
 end

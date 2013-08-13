@@ -23,4 +23,8 @@ module TextUtil
     content.gsub!(/[-+=]/, '') if content!= nil
   end
 
+  def is_set_avatar(content)
+    content == '头像'
+  end
+
 end

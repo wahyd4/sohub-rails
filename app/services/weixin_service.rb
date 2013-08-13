@@ -18,6 +18,9 @@ class WeixinService
       result = I18n.t('weixin.success.notice')
     elsif is_set_name content
       result = set_user_display_name message
+    elsif is_set_avatar content
+      is_success = message.user.set_avatar
+      result = is_success ? I18n.t('weixin.success.setAvatar') : I18n.t('weixin.failed.setAvatar')
     else
       result = I18n.t('weixin.dirty')
     end

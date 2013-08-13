@@ -37,4 +37,29 @@ describe WeixinService do
     User.find_by_display_name('新的用户名').should_not == nil
   end
 
+  it 'should return set avatar success text' do
+    user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+    user.messages.create message_type: 'image', picture_url: 'http://qq.com/logo.png'
+
+    message = Message.new
+    message.message_type='text'
+    message.user_id = user.id
+    message.content='头像'
+    result = WeixinService.new.handle_text message
+    result.should == '设置头像成功'
+
+  end
+
+  it 'should return set avatar failed text' do
+    user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+
+    message = Message.new
+    message.message_type='text'
+    message.user_id = user.id
+    message.content='头像'
+    result = WeixinService.new.handle_text message
+    result.should == '设置头像失败，请先上传一张图片再进行设置'
+
+  end
+
 end
