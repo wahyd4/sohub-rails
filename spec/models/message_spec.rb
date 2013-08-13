@@ -26,6 +26,13 @@ describe Message do
       result = message.is_need_to_store
       result.should == true
     end
+
+    it 'should return false for a location message' do
+      message = Message.new
+      message.message_type='location'
+      result = message.is_need_to_store
+      result.should == false
+    end
   end
 
   describe 'change normal message to notice' do

@@ -10,11 +10,15 @@ class Message < ActiveRecord::Base
   after_create :fill_from_user
 
   def is_need_to_store
-    if message_type == 'image' || is_normal_message(content)||is_notice(content)
+    if message_type == 'image' || is_valid_text_message
       true
     else
       false
     end
+  end
+
+  def is_valid_text_message
+    message_type == 'text' && (is_normal_message(content)||is_notice(content))
   end
 
   def to_notice!
