@@ -112,7 +112,7 @@ $(document).ready(function () {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                if(json[i].user!== undefined && json[i].user.avatar!== undefined){
+                if(json[i].user!== undefined && json[i].user.avatar!== undefined ){
                     footprint.append('<img src="' + json[i].user.avatar + '">');
                 }else{
                     footprint.append('<img src="/assets/elephant.jpg">')
