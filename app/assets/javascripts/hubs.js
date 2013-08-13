@@ -65,7 +65,11 @@ $(document).ready(function () {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="/assets/elephant.jpg">');
+                if(json[i].user!== undefined && json[i].user.avatar!== undefined){
+                    footprint.append('<img src="' + json[i].user.avatar + '">');
+                }else{
+                    footprint.append('<img src="/assets/elephant.jpg">')
+                }
                 footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
                 item.append(footprint);
 
@@ -108,7 +112,11 @@ $(document).ready(function () {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="/assets/elephant.jpg">');
+                if(json[i].user!== undefined && json[i].user.avatar!== undefined){
+                    footprint.append('<img src="' + json[i].user.avatar + '">');
+                }else{
+                    footprint.append('<img src="/assets/elephant.jpg">')
+                }
                 footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
                 item.append(footprint);
                 item.append('<p>' + json[i].content + '</p>');
@@ -122,7 +130,7 @@ $(document).ready(function () {
     }, interval * 2 - 1000 * 30);
 
 
-    // delay almost 2.5 minute to display notice Messages
+    // delay almost 2.5 minute to display weibo Messages
     setTimeout(function () {
         $.get('/weibo', function (json) {
             json = json.statuses;
