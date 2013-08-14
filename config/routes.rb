@@ -2,10 +2,10 @@ SohubRails::Application.routes.draw do
 
   root 'home#index'
 
-  get '/hubs' => 'hubs#index'
+  get '/hubs/' => 'hubs#index'
+  resources :hubs
 
-
-  resource :messages
+  #resource :messages
 
 
   get '/messages/:type' => 'messages#show_by_type'

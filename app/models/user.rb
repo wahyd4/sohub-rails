@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :messages
+  has_many :hubs
   attr_accessor :front_end_display_name
 
   def self.from_omniauth(auth)
