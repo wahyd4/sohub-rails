@@ -47,4 +47,12 @@ class User < ActiveRecord::Base
     self.messages.where(message_type: 'image')
   end
 
+  def set_current_hub(hub_id)
+    if Hub.find_by_id hub_id
+      update_attributes current_hub_id: hub_id
+    else
+      false
+    end
+  end
+
 end

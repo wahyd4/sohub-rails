@@ -86,4 +86,30 @@ describe TextUtil do
     end
 
   end
+
+  describe 'is set current hub' do
+    it 'should return true for set current hub' do
+      result = is_set_current_hub('#2')
+      result.should == true
+    end
+
+    it 'should return false for the number is too large' do
+      result = is_set_current_hub('#2564645')
+      result.should == false
+    end
+
+    it 'should return false for there is only #' do
+      result = is_set_current_hub('#')
+      result.should == false
+    end
+  end
+
+  describe 'get current hub from text' do
+    it 'should return 22' do
+      result = get_current_hub('#22')
+      result.should == 22
+    end
+  end
+
 end
+

@@ -5,6 +5,7 @@ describe WeixinService do
   it 'should return the normal message text words' do
     message = Message.new
     message.message_type='text'
+    message.hub_id = 1
     message.content='-你好'
     result = WeixinService.new.handle_text message
     result.should == I18n.t('weixin.success.text')
@@ -22,6 +23,7 @@ describe WeixinService do
     message = Message.new
     message.message_type='text'
     message.content='+通知消息'
+    message.hub_id = 1
     result = WeixinService.new.handle_text message
     result.should == '通知信息发布成功'
     message.message_type == 'notce'
@@ -60,6 +62,27 @@ describe WeixinService do
     result = WeixinService.new.handle_text message
     result.should == '设置头像失败，请先上传一张图片再进行设置'
 
+  end
+
+  it 'should return set current hub text success' do
+    user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+    hub = user.hubs.create name: 'Test'
+    message = Message.new
+    message.message_type='text'
+    message.user_id = user.id
+    message.content="##{hub.id}"
+    result = WeixinService.new.handle_text message
+    result.should == '设置当前Hub成功'
+  end
+
+  it 'should return set current hub text success' do
+    user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+    message = Message.new
+    message.message_type='text'
+    message.user_id = user.id
+    message.content="#100"
+    result = WeixinService.new.handle_text message
+    result.should == '设置当前Hub失败，请确认Hub编号正确'
   end
 
 end

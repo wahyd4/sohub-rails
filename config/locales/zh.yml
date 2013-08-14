@@ -8,11 +8,15 @@ zh:
       image: '图片信息发布成功'
       unknown: '对不起，你发布的信息我还不认识哦'
       setAvatar: '设置头像成功'
+      setHub: '设置当前Hub成功'
     failed:
       setAvatar: '设置头像失败，请先上传一张图片再进行设置'
+      setHub: '设置当前Hub失败，请确认Hub编号正确'
     help: "欢迎使用Sohub微信客户端。\n使用+你的信息，发布通知、公告类信息\n,使用-你的消息,发布普通信息,还可以发送图片哦。菜单请输入m或者menu"
     menu:  "菜单：\n 1. 设置用户名（请输入=你的名字）\n 2.选择盒子\n 3.设置头像(请先上传一张图片，并输入'头像'二字即可)"
     dirty: '随便发垃圾消息的孩子，不乖哦！试试help(h),或者menu(m)吧'
     systemErr: '系统操作失败,请确认信息输入正确后重试！'
+    warn:
+      setHub: '请先设置Hub(使用#序号),后再使用'
   user:
     defaultName: '无名氏'

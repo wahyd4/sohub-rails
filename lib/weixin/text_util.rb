@@ -27,4 +27,12 @@ module TextUtil
     content == '头像'
   end
 
+  def is_set_current_hub(content)
+    content.match('^[#]{1}\d{1,5}$')!=nil
+  end
+
+  def get_current_hub(content)
+      content.gsub(/[#]/,'').to_i
+  end
+
 end

@@ -61,4 +61,20 @@ describe User do
     end
   end
 
+  describe 'set current hub to user' do
+    it 'should set current hub success' do
+      user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+      hub = user.hubs.create name: 'test'
+      result = user.set_current_hub hub.id
+      result.should == true
+    end
+
+    it 'should set current hub failed if there is no such hub' do
+      user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
+      result = user.set_current_hub 2
+      result.should == false
+    end
+
+  end
+
 end
