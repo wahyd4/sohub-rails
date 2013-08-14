@@ -1,7 +1,7 @@
 class HubsController < ApplicationController
 
   def index
-    render layout: 'hub.slim'
+    @hubs = Hub.all
   end
 
   def new

@@ -1,3 +1,19 @@
-// Place all the styles related to the hubs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-container {
+  color: #000000;
+  margin-top: 30px;
+  .header {
+    margin: 20px 0 20px 45px;
+    color: #eea236;
+  }
+
+  .row {
+    .col-lg-3 {
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 55px;
+      margin-right: 55px;
+      text-align: center;
+    }
+  }
+}
