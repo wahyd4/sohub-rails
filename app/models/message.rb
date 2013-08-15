@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
   include TextUtil
 
   delegate :front_end_display_name, to: :user
+  scope :reverted, -> { order('created_at DESC') }
 
   after_create :fill_from_user
 

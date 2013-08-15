@@ -115,4 +115,24 @@ describe Message do
     end
   end
 
+  describe 'revert the message ordering' do
+    it 'should revert the message ordering' do
+      message = Message.new
+      message.user_id = User.create(weixin_user_id: '4r345sdf').id
+      message.message_type='text'
+      message.content='=用户名'
+      message.set_user_name
+      message.save
+
+      message1 = Message.new
+      message1.user_id = User.create(weixin_user_id: '4r345sdf').id
+      message1.message_type='text'
+      message1.content='+测试'
+      message1.set_user_name
+      message1.save
+
+      Message.reverted.first.id == message1.id
+    end
+  end
+
 end
