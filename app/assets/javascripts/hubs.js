@@ -29,7 +29,7 @@ $(document).ready(function () {
             }
             //show the next children nodes
             for (var i = flag; i < flag + textMessageCount; i++) {
-                $(children[i]).fadeIn('slow');
+                $(children[i]).show('drop');
             }
             //flag +3
             flag = flag + textMessageCount;
