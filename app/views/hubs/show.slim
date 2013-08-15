@@ -3,6 +3,8 @@
 - content_for :javascript_includes do
   = javascript_include_tag 'hubs', "data-turbolinks-track" => true
 div#loading Sohub is loading...
+div.hidden
+  input.hub value="#{@hub.id}"
 div.main-container
     div
       i.icon-file-text.icon-4x

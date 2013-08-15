@@ -9,6 +9,7 @@ $(document).ready(function () {
     var textMessageCount = 1;
     var timeToShowNextMessage = 1000 * 5;
 
+    var hub_id = $('.hub').val();
 
     /**
      * 切换容器中的文字
@@ -57,7 +58,7 @@ $(document).ready(function () {
 
     cycling(interval, nextChildToShow);
 
-    $.get('/messages/text', function (json) {
+    $.get('/messages/text?hub=' + hub_id, function (json) {
     })
         .done(function (json) {
             var content = $('.text-content');
@@ -65,11 +66,7 @@ $(document).ready(function () {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                if(json[i].user!== undefined && json[i].user.avatar!== undefined){
-                    footprint.append('<img src="' + json[i].user.avatar + '">');
-                }else{
-                    footprint.append('<img src="/assets/elephant.jpg">')
-                }
+                footprint.append('<img src="' + json[i].user.avatar + '">');
                 footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
                 item.append(footprint);
 
@@ -106,17 +103,13 @@ $(document).ready(function () {
 
     // delay almost 2 minute to display notice Messages
     setTimeout(function () {
-        $.get('/messages/notice', function (json) {
+        $.get('/messages/notice?hub=' + hub_id, function (json) {
             var noticeContainer = $('.notice-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li style="display: none"></li>');
 
                 var footprint = $('<div></div>').addClass('footprint');
-                if(json[i].user!== undefined && json[i].user.avatar!== undefined ){
-                    footprint.append('<img src="' + json[i].user.avatar + '">');
-                }else{
-                    footprint.append('<img src="/assets/elephant.jpg">')
-                }
+                footprint.append('<img src="' + json[i].user.avatar + '">');
                 footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
                 item.append(footprint);
                 item.append('<p>' + json[i].content + '</p>');

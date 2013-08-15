@@ -6,7 +6,13 @@ class MessagesController < ApplicationController
 
   def show_by_type
     type = params[:type]
-    @messages = Message.where(message_type: type).reverted.limit(20)
+    hub = Hub.find_by_id params[:hub]
+    un_filtered_messages = Message.where(message_type: type)
+    if hub
+      @messages = un_filtered_messages.where(hub_id: hub.id).limit(20)
+    else
+      @messages =un_filtered_messages.reverted.limit(20)
+    end
     render json: @messages.to_json(include: {user: {only: [:avatar, :display_name]}})
   end
 end

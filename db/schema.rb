@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814132340) do
+ActiveRecord::Schema.define(version: 20130815145152) do
 
   create_table "credentials", force: true do |t|
     t.string   "oauth_provider"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20130814132340) do
     t.string   "email"
     t.string   "display_name"
     t.string   "weixin_user_id"
-    t.string   "avatar"
+    t.string   "avatar",         default: "/assets/elephant.jpg"
     t.integer  "current_hub_id"
   end
 
