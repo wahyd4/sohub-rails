@@ -10,7 +10,7 @@ class Message < ActiveRecord::Base
   after_create :fill_from_user
 
   def is_need_to_store
-    if message_type == 'image' || is_valid_text_message
+    if hub_id && (message_type == 'image' || is_valid_text_message)
       true
     else
       false

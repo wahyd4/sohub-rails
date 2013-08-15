@@ -7,6 +7,7 @@ describe Message do
       message = Message.new
       message.message_type='text'
       message.content='-你好'
+      message.hub_id = 1
       result = message.is_need_to_store
       result.should == true
     end
@@ -21,6 +22,7 @@ describe Message do
 
     it 'should return true for a image message' do
       message = Message.new
+      message.hub_id = 1
       message.message_type='image'
       message.picture_url='http://baidu.com/logo.gif'
       result = message.is_need_to_store
@@ -49,6 +51,7 @@ describe Message do
       lambda do
         message = Message.new
         message.message_type='text'
+        message.hub_id = 1
         message.user_id = User.create(weixin_user_id: '4r345sdf').id
         message.content='-你好'
         result = message.store_message
@@ -66,9 +69,22 @@ describe Message do
       end.should change(Message, :count).by(0)
     end
 
+
+    it 'should not store a message without hub id' do
+      lambda do
+        message = Message.new
+        message.message_type='text'
+        message.user_id = User.create(weixin_user_id: '4r345sdf').id
+        message.content='-help'
+        result = message.store_message
+      end.should change(Message, :count).by(0)
+
+    end
+
     it 'should replace special symbol when store a message' do
       message = Message.new
       message.message_type='text'
+      message.hub_id = 1
       message.user_id = User.create(weixin_user_id: '4r345sdf').id
       message.content='-this a normal message'
       result = message.store_message
@@ -78,6 +94,7 @@ describe Message do
     it 'when store a message should repalce from user name if the user has been set a display name' do
       message = Message.new
       message.user_id = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom').id
+      message.hub_id = 1
       message.message_type='text'
       message.content='+通知消息'
       result = message.store_message
