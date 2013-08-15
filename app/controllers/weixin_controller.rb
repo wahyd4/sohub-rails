@@ -20,6 +20,8 @@ class WeixinController < ApplicationController
         content = weixin_service.handle_text message
       when 'image'
         content = I18n.t('weixin.success.image')
+      when 'event'
+        content=I18n.t('weixin.help')
       else
         content = I18n.t('weixin.success.unknown')
     end
