@@ -1,11 +1,11 @@
-- content_for :style_includes do
-  =stylesheet_link_tag "hubs",media: "all", "data-turbolinks-track" => true
 
 div.main-container
   div.header
     h1 Hub 列表
-  div.row
+  div.row.hub-list
      -@hubs.each do |hub|
        div.col-lg-3
+        p.hub-id
+          ="ID:#{hub.id}"
         h3
           =link_to hub.name, "/hubs/#{hub.id}"

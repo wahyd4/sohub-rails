@@ -12,9 +12,14 @@
  */
 
 @import "message";
-@import "lib/bootstrap.min.css";
+@import "bootstrap.min.css";
 @import "admin";
 @import "font-awesome/css/font-awesome.min.css";
+@import "hubs.css.scss";
+
+body {
+  color: #5a5a5a;
+}
 
 a {
   text-decoration: none;
