@@ -62,7 +62,7 @@ describe Message do
     it 'should store notice text message' do
       lambda do
         message = Message.new
-        message.message_type='text'
+        message.message_type='notice'
         message.hub_id = 1
         message.user_id = User.create(weixin_user_id: '4r345sdf').id
         message.content='+你好'

@@ -19,7 +19,7 @@ class Message < ActiveRecord::Base
   end
 
   def is_valid_text_message
-    message_type == 'text' && (is_normal_message(content)||is_notice(content))
+    is_normal_message(content)||is_notice(content)
   end
 
   def to_notice!
@@ -28,7 +28,6 @@ class Message < ActiveRecord::Base
 
   def store_message
     if self.is_need_to_store
-      to_notice! if is_notice content
       replace_symbol! self.content
       self.save
       self
