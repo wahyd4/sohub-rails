@@ -28,6 +28,7 @@ class Message < ActiveRecord::Base
 
   def store_message
     if self.is_need_to_store
+      to_notice! if is_notice content
       replace_symbol! self.content
       self.save
       self

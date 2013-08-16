@@ -59,6 +59,19 @@ describe Message do
 
     end
 
+    it 'should store notice text message' do
+      lambda do
+        message = Message.new
+        message.message_type='text'
+        message.hub_id = 1
+        message.user_id = User.create(weixin_user_id: '4r345sdf').id
+        message.content='+你好'
+        result = message.store_message
+        result.message_type.should=='notice'
+      end.should change(Message, :count).by(1)
+
+    end
+
     it 'should not store a help command' do
       lambda do
         message = Message.new
