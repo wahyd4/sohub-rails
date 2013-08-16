@@ -56,7 +56,7 @@ describe User do
       user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
       result = user.set_avatar
       result.should == false
-      User.find_by_display_name('Tom').avatar.should == nil
+      User.find_by_display_name('Tom').avatar.should_not == nil
 
     end
   end
