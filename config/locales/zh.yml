@@ -18,5 +18,6 @@ zh:
     systemErr: '系统操作失败,请确认信息输入正确后重试！'
     warn:
       setHub: '请先设置Hub(使用#序号),后再使用'
+    welcome: "欢迎使用Sohub微信客户端,网站：http://sohub.toozhao.com/ \n使用前必须绑定频道编号（hub_id），请从网站频道列表查询你要发布的频道编号，输入#频道ID即可（如：#1）"
   user:
     defaultName: '无名氏'

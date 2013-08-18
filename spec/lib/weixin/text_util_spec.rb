@@ -11,6 +11,12 @@ describe TextUtil do
       is_help('help').should == true
     end
 
+    it 'should return true for call help and the letter is uppercase' do
+      flag = is_help 'H'
+      flag.should == true
+      is_help('help').should == true
+    end
+
     it 'should return false for not call help' do
       is_help('dd').should == false
     end
@@ -18,6 +24,7 @@ describe TextUtil do
     it 'should return true for call menu' do
       is_menu('m').should == true
       is_menu('menu').should == true
+      is_menu('M').should == true
     end
 
     it 'should return false for not call menu' do

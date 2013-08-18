@@ -1,9 +1,11 @@
 module TextUtil
   def is_help(content)
-    content == 'h' || content == 'help'
+    content = content.downcase
+    content== 'h' || content == 'help'
   end
 
   def is_menu(content)
+    content = content.downcase
     content == 'm'||content == 'menu'
   end
 
@@ -32,7 +34,7 @@ module TextUtil
   end
 
   def get_current_hub(content)
-      content.gsub(/[#]/,'').to_i
+    content.gsub(/[#]/, '').to_i
   end
 
 end
