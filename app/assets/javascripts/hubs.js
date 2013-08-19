@@ -105,28 +105,6 @@ $(document).ready(function () {
         });
     }, interval - 1000 * 30);
 
-    // delay almost 2 minute to display notice Messages
-    setTimeout(function () {
-        $.get('/messages/notice?hub=' + hub_id, function (json) {
-            var noticeContainer = $('.notice-content');
-            for (var i = 0; i < json.length; i++) {
-                var item = $('<li style="display: none"></li>');
-
-                var footprint = $('<div></div>').addClass('footprint');
-                footprint.append('<img src="' + json[i].user.avatar + '">');
-                footprint.append('<div>' + json[i].from_user + '发表于' + timeSince(json[i].created_at) + '</div>');
-                item.append(footprint);
-                item.append('<p>' + json[i].content + '</p>');
-                noticeContainer.append(item);
-
-            }
-
-            slideDiv(noticeContainer, textMessageCount);
-
-        });
-    }, interval * 2 - 1000 * 30);
-
-
     // delay almost 2.5 minute to display weibo Messages
     setTimeout(function () {
         $.get('/weibo', function (json) {
@@ -161,7 +139,7 @@ $(document).ready(function () {
             slideDiv(weiboContainer, textMessageCount);
 
         });
-    }, interval * 3 - 1000 * 30);
+    }, interval * 2 - 1000 * 30);
 
     setTimeout(function () {
         $.get('/calendar', function (json) {
@@ -192,6 +170,6 @@ $(document).ready(function () {
             slideDiv(calendarContainer, textMessageCount);
 
         });
-    }, interval * 4 - 1000 * 30);
+    }, interval * 3 - 1000 * 30);
 
 });
