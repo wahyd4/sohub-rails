@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+    setTimeout(function () {
+        window.location.reload();
+    }, 1000 * 60 * 15);
+
     if (!assertOnPage('hubs')) {
         return false;
     }
