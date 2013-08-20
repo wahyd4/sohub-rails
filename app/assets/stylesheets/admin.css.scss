@@ -5,12 +5,16 @@
 .container {
   form.form-signup,
   form.form-login {
-    width: 300px;
+    width: 350px;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid #e5e5e5;
     padding: 20px 30px;
     margin-top: 40px;
+
+    div, input {
+      margin-bottom: 25px;
+    }
   }
 
   .row.dashboard {
