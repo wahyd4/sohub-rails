@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
     if params[:provider] =='weibo' && env["omniauth.auth"]["uid"]==3687629193
       token =env["omniauth.auth"]["credentials"]["token"]
       Credential.create_weibo_credential token
-      render text: '更新微博token成功'
+      redirect_to success_path, notice: I18n.t('auth.update_weibo')
       return
     elsif env["omniauth.auth"]["uid"]=="111750382914822658237"
       token =env["omniauth.auth"]["credentials"]["token"]
       refresh_token =env["omniauth.auth"]["credentials"]["refresh_token"]
       Credential.create_google_credential token, refresh_token
-      render text: '更新google token成功'
+      redirect_to success_path, notice: I18n.t('auth.update_google')
       return
     end
 
@@ -39,6 +39,10 @@ class SessionsController < ApplicationController
 
   def signup
     @identity = env['omniauth.identity']
+  end
+
+  def success
+
   end
 
 end

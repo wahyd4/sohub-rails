@@ -1,0 +1,8 @@
+- content_for :javascript_includes do
+  = javascript_include_tag 'sessions', "data-turbolinks-track" => true
+script
+div.narrow-body
+  i.icon-ok
+  div
+    = notice
+  span 当前页面将在3秒后自动关闭

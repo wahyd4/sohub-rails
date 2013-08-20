@@ -22,5 +22,7 @@ zh:
   user:
     defaultName: '无名氏'
   auth:
-    login_failed: '登录失败，请重试。'
-    login_success: '登录成功。'
+    login_failed: '登录失败，请重试'
+    login_success: '登录成功'
+    update_weibo: '更新微博token成功'
+    update_google: '更新google token成功'
