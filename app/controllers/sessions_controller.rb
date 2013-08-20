@@ -33,6 +33,8 @@ class SessionsController < ApplicationController
 
   def failure
     redirect_to :back, alert: I18n.t('auth.login_failed')
+  rescue ActionController::RedirectBackError
+    redirect_to root_path
   end
 
   def signup
