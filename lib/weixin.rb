@@ -50,6 +50,7 @@ module Weixin
     if xml[:PicUrl]
       image = Image.store_image xml[:PicUrl]
       message.picture_url = image.source.url
+      message.image_id = image.id
     end
     message
   end

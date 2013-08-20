@@ -44,12 +44,13 @@ describe User do
   describe 'set user avartar' do
     it 'should set my avartar success when I have uploaded a image' do
       user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
-      user.messages.create message_type: 'image', picture_url: 'http://qq.com/logo.png'
+      image = Image.create
+      user.messages.create message_type: 'image', picture_url: 'http://qq.com/logo.png', image_id: image.id
       user.image_messages.size.should == 1
       result = user.set_avatar
       result.should == true
-      User.find_by_display_name('Tom').avatar.should == 'http://qq.com/logo.png'
-      user.image_messages.size.should == 0
+      User.find_by_display_name('Tom').avatar.should_not == "/assets/elephant.jpg"
+      user.image_messages.size.should == 1
     end
 
     it 'should return false if user did not upload a image' do

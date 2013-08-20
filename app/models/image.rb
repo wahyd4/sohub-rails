@@ -2,6 +2,9 @@ require "open-uri"
 
 class Image < ActiveRecord::Base
 
+  belongs_to :user
+  belongs_to :message
+
   has_attached_file :source, styles: {
       thumb: '100x100>',
       medium: '300x300>'

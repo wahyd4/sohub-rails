@@ -5,6 +5,8 @@ class Message < ActiveRecord::Base
 
   include TextUtil
 
+  belongs_to :image
+
   delegate :front_end_display_name, to: :user
   scope :reverted, -> { order('created_at DESC') }
 

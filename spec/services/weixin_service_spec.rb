@@ -41,7 +41,8 @@ describe WeixinService do
 
   it 'should return set avatar success text' do
     user = User.create(weixin_user_id: '4r345sdf', display_name: 'Tom')
-    user.messages.create message_type: 'image', picture_url: 'http://qq.com/logo.png'
+    image = Image.create
+    user.messages.create message_type: 'image', picture_url: 'http://qq.com/logo.png', image_id: image.id
 
     message = Message.new
     message.message_type='text'

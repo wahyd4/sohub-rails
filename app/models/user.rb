@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :messages
   has_many :hubs
+  belongs_to :image
   attr_accessor :front_end_display_name
 
   def self.from_omniauth(auth)
@@ -35,8 +36,7 @@ class User < ActiveRecord::Base
   def set_avatar
     avatar_image = image_messages.last
     if avatar_image
-      update_attributes avatar: avatar_image.picture_url
-      avatar_image.destroy!
+      update_attributes avatar: avatar_image.image.source.url(:thumb)
       true
     else
       false
