@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    Rails.logger.warn "============&&&&&&&========" + env["omniauth.auth"].to_s
+    Rails.logger.warn "===========" + env["omniauth.auth"].to_s
 
     if params[:provider] =='weibo' && env["omniauth.auth"]["uid"]==3687629193
       token =env["omniauth.auth"]["credentials"]["token"]
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_path, notice: "Signed in!"
+    redirect_to root_path, notice: I18n.t('auth.login_success')
   end
 
   def destroy
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to :root, alert: "Authentication failed, please try again."
+    redirect_to :back, alert: I18n.t('auth.login_failed')
   end
 
   def signup

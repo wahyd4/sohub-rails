@@ -21,3 +21,6 @@ zh:
     welcome: "欢迎使用Sohub微信客户端,网站：http://sohub.toozhao.com/ \n使用前必须绑定频道编号（hub_id），请从网站频道列表查询你要发布的频道编号，输入#频道ID即可（如：#1）"
   user:
     defaultName: '无名氏'
+  auth:
+    login_failed: '登录失败，请重试。'
+    login_success: '登录成功。'
