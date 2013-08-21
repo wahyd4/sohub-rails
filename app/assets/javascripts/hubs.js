@@ -4,14 +4,16 @@ $(document).ready(function () {
         window.location.reload();
     }, 1000 * 60 * 15);
 
-    if (!assertOnPage('hubs')) {
-        return false;
-    }
 
     var interval = 1000 * 60;
     var nextChildToShow = 1;
     var textMessageCount = 1;
     var timeToShowNextMessage = 1000 * 5;
+
+    var IMAGE_DELAY = 3 * 1000;
+    var TEXT_DELAY = 5 * 1000;
+
+    var timeouts = [];
 
     var hub_id = $('.hub').val();
 
@@ -19,26 +21,32 @@ $(document).ready(function () {
      * 切换容器中的文字
      * @param container
      * @param flag 初始值
+     * @param delay
+     * return setInterval id
      */
-    function slideDiv(container, flag) {
+    function slideDiv(container, flag, delay) {
+        delay = delay || timeToShowNextMessage;
         var flag = flag || textMessageCount;
-        setInterval(function () {
+        return setInterval(function () {
             var children = container.children();
             if (flag >= children.length) {
                 //reset the flag to 0
                 flag = 0;
             }
-            //hide all the children nodes
             for (var j = 0; j < children.length; j++) {
                 $(children[j]).hide();
             }
-            //show the next children nodes
             for (var i = flag; i < flag + textMessageCount; i++) {
                 $(children[i]).show('drop');
             }
-            //flag +3
             flag = flag + textMessageCount;
-        }, timeToShowNextMessage);
+        }, delay);
+    }
+
+    function clearAllInterval(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            clearInterval(timeouts[i]);
+        }
     }
 
     /**
@@ -50,8 +58,11 @@ $(document).ready(function () {
         setInterval(function () {
             var containers = $('.main-container').children();
             hideAllChildren('.main-container');
+            clearAllInterval(timeouts);
+
             var nextContainer = containers[nextChildToShow] || containers[0];
             $(nextContainer).show('clip');
+            timeouts.push(slideDiv($(nextContainer).children().last(), 1, TEXT_DELAY));
 
             if (nextChildToShow === containers.length) {
                 nextChildToShow = 0;
@@ -80,10 +91,7 @@ $(document).ready(function () {
                 item.append('<p>' + json[i].content + '</p>');
                 content.append(item);
             }
-
-
-            slideDiv(content);
-            //hide the loading text
+            timeouts.push(slideDiv(content, 1, TEXT_DELAY));
             $('#loading').hide();
         })
         .fail(function (error) {
@@ -100,8 +108,6 @@ $(document).ready(function () {
                 imageContainer.append(item);
 
             }
-            slideDiv(imageContainer, textMessageCount);
-
         });
     }, interval - 1000 * 30);
 
@@ -135,9 +141,6 @@ $(document).ready(function () {
                 weiboContainer.append(item);
 
             }
-
-            slideDiv(weiboContainer, textMessageCount);
-
         });
     }, interval * 2 - 1000 * 30);
 
@@ -166,9 +169,6 @@ $(document).ready(function () {
                 calendarContainer.append(item);
 
             }
-
-            slideDiv(calendarContainer, textMessageCount);
-
         });
     }, interval * 3 - 1000 * 30);
 
