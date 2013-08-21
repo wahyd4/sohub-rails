@@ -62,7 +62,9 @@ $(document).ready(function () {
 
             var nextContainer = containers[nextChildToShow] || containers[0];
             $(nextContainer).show('clip');
-            timeouts.push(slideDiv($(nextContainer).children().last(), 1, TEXT_DELAY));
+            if (!$(nextContainer).children().last().hasClass('image-content')) {
+                timeouts.push(slideDiv($(nextContainer).children().last(), 1, TEXT_DELAY));
+            }
 
             if (nextChildToShow === containers.length) {
                 nextChildToShow = 0;
@@ -104,7 +106,9 @@ $(document).ready(function () {
             var imageContainer = $('.image-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li></li>');
-                item.append('<img src="' + json[i].picture_url + '">');
+                var span = $('<span></span>');
+                span.css('background-image', 'url(' + json[i].picture_url + ')');
+                item.append(span);
                 imageContainer.append(item);
 
             }
