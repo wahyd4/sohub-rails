@@ -7,5 +7,9 @@
         = alert
     = text_field_tag :auth_key, '', placeholder: "Email", class: 'form-control',placeholder:"用户名",autofocus:""
     = password_field_tag :password, '', placeholder: "密码", class: 'form-control',placeholder:"密码",autofocus:""
+    div.login-types
+      a href="/auth/weibo" target="_blank"
+        i.icon-weibo 微博登录
+      a href="/auth/google_oauth2" target="_blank"
+              i.icon-google-plus Google登录
     = button_tag "登录", type:'submit', class: 'btn btn-lg btn-primary btn-block'
-    = link_to '注册', signup_path,class:'btn btn-lg btn-warning btn-block'
