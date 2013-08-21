@@ -106,8 +106,7 @@ $(document).ready(function () {
             var imageContainer = $('.image-content');
             for (var i = 0; i < json.length; i++) {
                 var item = $('<li></li>');
-                var span = $('<span></span>');
-                span.css('background-image', 'url(' + json[i].picture_url + ')');
+                var span = $('<span><img src="' + json[i].picture_url + '"/></span>');
                 item.append(span);
                 imageContainer.append(item);
 
