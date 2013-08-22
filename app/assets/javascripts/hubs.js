@@ -62,9 +62,7 @@ $(document).ready(function () {
 
             var nextContainer = containers[nextChildToShow] || containers[0];
             $(nextContainer).show('clip');
-            if (!$(nextContainer).children().last().hasClass('image-content')) {
-                timeouts.push(slideDiv($(nextContainer).children().last(), 1, TEXT_DELAY));
-            }
+            timeouts.push(slideDiv($(nextContainer).children().last(), 1, TEXT_DELAY));
 
             if (nextChildToShow === containers.length) {
                 nextChildToShow = 0;

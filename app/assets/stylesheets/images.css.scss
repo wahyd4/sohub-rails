@@ -1,0 +1,155 @@
+$single_time: 5s;
+
+@keyframes cf3FadeInOut {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.05) translateY(2%);
+  }
+  95% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.1) translateY(5%);
+  }
+}
+
+@-webkit-keyframes cf3FadeInOut {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 1;
+    -webkit-transform: scale(1.05) translateY(2%);
+  }
+  95% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.1) translateY(5%);
+  }
+}
+
+.cb-slideshow,
+.cb-slideshow:after {
+  position: fixed;
+  width: 100% !important;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+}
+
+.cb-slideshow:after {
+  content: '';
+}
+
+.cb-slideshow li span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  z-index: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: cf3FadeInOut $single_time linear infinite 0s;
+  animation: cf3FadeInOut $single_time linear infinite 0s;
+}
+
+@-webkit-keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-300%);
+  }
+  8% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+  17% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+  }
+  19% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+  }
+  25% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}
+
+.cb-slideshow li:nth-child(1) span {
+}
+
+.cb-slideshow li:nth-child(2) span {
+  -webkit-animation-delay: $single_time;
+}
+
+.cb-slideshow li:nth-child(3) span {
+}
+
+.cb-slideshow li:nth-child(4) span {
+  -webkit-animation-delay: $single_time;
+}
+
+.cb-slideshow li:nth-child(5) span {
+}
+
+.cb-slideshow li:nth-child(6) span {
+  -webkit-animation-delay: $single_time;
+}
+
+.cb-slideshow li:nth-child(7) span {
+}
+
+.cb-slideshow li:nth-child(8) span {
+  -webkit-animation-delay: $single_time;
+}
+
+.cb-slideshow li:nth-child(9) span {
+}
+
+.cb-slideshow li:nth-child(10) span {
+  -webkit-animation-delay: $single_time;
+}
+
+.cb-slideshow li:nth-child(11) span {
+}
+
+.cb-slideshow li:nth-child(12) span {
+  -webkit-animation-delay: $single_time;
+}
+
+/* Show at least something when animations not supported */
+.no-cssanimations .cb-slideshow li span {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1140px) {
+  .cb-slideshow li div h3 {
+    font-size: 100px
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cb-slideshow li div h3 {
+    font-size: 50px
+  }
+}
