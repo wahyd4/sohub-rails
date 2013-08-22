@@ -1,4 +1,4 @@
-$single_time: 5s;
+$single_time: 0s;
 
 @keyframes cf3FadeInOut {
   0% {
@@ -63,11 +63,11 @@ $single_time: 5s;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: none;
-  opacity: 0;
+  //opacity: 0;
   z-index: 0;
   -webkit-backface-visibility: hidden;
-  -webkit-animation: cf3FadeInOut $single_time linear infinite 0s;
-  animation: cf3FadeInOut $single_time linear infinite 0s;
+  -webkit-animation: cf3FadeInOut 5s linear infinite 0s;
+  animation: cf3FadeInOut 5s linear infinite 0s;
 }
 
 @-webkit-keyframes titleAnimation {
@@ -96,6 +96,7 @@ $single_time: 5s;
 }
 
 .cb-slideshow li:nth-child(1) span {
+  -webkit-animation-delay: 0s;
 }
 
 .cb-slideshow li:nth-child(2) span {
@@ -103,6 +104,7 @@ $single_time: 5s;
 }
 
 .cb-slideshow li:nth-child(3) span {
+  -webkit-animation-delay: 0s;
 }
 
 .cb-slideshow li:nth-child(4) span {
@@ -110,6 +112,7 @@ $single_time: 5s;
 }
 
 .cb-slideshow li:nth-child(5) span {
+  -webkit-animation-delay: 0s;
 }
 
 .cb-slideshow li:nth-child(6) span {
@@ -117,6 +120,7 @@ $single_time: 5s;
 }
 
 .cb-slideshow li:nth-child(7) span {
+  -webkit-animation-delay: 0s;
 }
 
 .cb-slideshow li:nth-child(8) span {
@@ -124,6 +128,7 @@ $single_time: 5s;
 }
 
 .cb-slideshow li:nth-child(9) span {
+  -webkit-animation-delay: 0s;
 }
 
 .cb-slideshow li:nth-child(10) span {
@@ -131,6 +136,7 @@ $single_time: 5s;
 }
 
 .cb-slideshow li:nth-child(11) span {
+  -webkit-animation-delay: 0s;
 }
 
 .cb-slideshow li:nth-child(12) span {
