@@ -74,11 +74,13 @@ h1 a {
         img {
           max-width: 75px;
           max-height: 75px;
-          border-radius: 45px;
-          border: 5px solid white;
+          border-radius: 100%;
+          //border: 5px solid white;
+          webkit-box-shadow: 0 0 0 5px #fff,0 5px 8px rgba(0,0,0,0.65);
+          -moz-box-shadow: 0 0 0 5px #fff,0 5px 8px rgba(0,0,0,0.65);
+          box-shadow: 0 0 0 5px #fff,0 5px 8px rgba(0,0,0,0.65);
           margin-top: 15px;
           margin-bottom: 10px;
-          box-shadow: 0 0 15px #000;
         }
       }
     }
