@@ -10,7 +10,7 @@ module TextUtil
   end
 
   def is_normal_message(content)
-    content.match('^[-]{1}[^-+]+$') != nil
+    content.match('^[-]{1}[^-+]{1}') != nil
   end
 
   def is_notice(content)

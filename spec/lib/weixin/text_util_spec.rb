@@ -38,8 +38,18 @@ describe TextUtil do
       is_normal_message('-你好').should == true
     end
 
-    it 'should return false for not a normal message' do
+    it 'should return true for normal message' do
+      is_normal_message('-你好-').should == true
+      is_normal_message('-testing - testing ....-').should == true
+
+    end
+
+    it 'should return true for normal message' do
       is_normal_message('--你好').should == false
+    end
+
+    it 'should return false for not a normal message' do
+      is_normal_message("-Hey，guys！Welcome to the salon on this Thursday.\n【Topic】JRuby\n【Speaker】A software developer from ThoughtWorks - Ola Bini \n【Date】Aug 29,2013 at 6:30 PM GMT+08:00.\n【Address】Tianfu Software Park A1 - YiQiLai Cafe").should == true
     end
 
     it 'should return true for a notice message' do
