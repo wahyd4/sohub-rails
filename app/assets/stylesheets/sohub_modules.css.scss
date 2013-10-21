@@ -1,0 +1,27 @@
+.main-container {
+  .row.sohub-module-list {
+    margin-bottom: 50px;
+    div.col-lg-3 {
+      color: #333;
+      border: 1px solid #333;
+      padding: 10px;
+      margin: 0 auto;
+      margin-left: 60px;
+      border-radius: 10px;
+      box-shadow: 0px 1px 8px #333;
+      text-align: center;
+
+      i{
+        font-size: 200px;
+        color:#5bc0de;
+      }
+      p{
+        margin: 0 0 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+    }
+
+  }
+}

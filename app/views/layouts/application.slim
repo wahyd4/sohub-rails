@@ -14,11 +14,13 @@ body
             li
               a href="/" 首页
             li
-              a href="/hubs" Hubs
+              a href="/hubs" 频道
+            li
+              a href="/sohub_modules" 模块
           ul.nav.navbar-nav.navbar-right
             -if @current_user
               li
-                =link_to @current_user.name, '#'
+                =link_to @current_user.name, '/hubs/mine'
               li
                 =link_to '退出',logout_path
             -else

@@ -28,6 +28,8 @@
 #                to_user: 'gh_418963502e3c',
 #                user_id:'oGHz6jqRjNHwBo_a_s', message_type: 'notice',
 #                create_time: DateTime.now, message_id: 5893056478695514624
-User.last.hubs.create name: '默认'
-User.last.hubs.create name: '思特沃克'
-
+#User.last.hubs.create name: '默认'
+#User.last.hubs.create name: '思特沃克'
+SohubModule.create name: '微博', image: 'icon-weibo', description: ''
+SohubModule.create name: '图片信息', image: 'icon-camera', description: ''
+SohubModule.create name: '文字信息', image: 'icon-cny', description: ''

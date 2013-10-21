@@ -18,6 +18,7 @@
 @import "hubs.css.scss";
 @import "sessions.css.scss";
 @import "images.css";
+@import "sohub_modules.css.scss";
 
 body {
   color: #5a5a5a;
@@ -151,7 +152,7 @@ h1 a {
 .footer {
   position: fixed;
   bottom: 0;
-  font-size: 1.5em;
+  font-size: 1em;
   color: #ffffff;
   width: 100%;
   left: 0;

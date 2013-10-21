@@ -22,4 +22,8 @@ class HubsController < ApplicationController
     render :my_list
   end
 
+  def edit
+
+  end
+
 end

@@ -15,6 +15,18 @@
         position: absolute;
         line-height: 75px;
         color:#eea236;
+        left:0px;
+      }
+      a.hub-setting{
+        float: right;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        font-size: 28px;
+        padding: 5px;
+      }
+      a.hub-setting:hover{
+        text-decoration: none;
       }
 
       border: 1px solid #dddddd;

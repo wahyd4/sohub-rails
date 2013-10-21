@@ -9,3 +9,5 @@ div.main-container
           =hub.id
         h3
           =link_to hub.name, "/hubs/#{hub.id}"
+        =link_to class:"hub-setting",href:"/hubs/#{hub.id}/edit"
+          i.icon-cog.icon-5

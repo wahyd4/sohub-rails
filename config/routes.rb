@@ -35,5 +35,7 @@ SohubRails::Application.routes.draw do
 
   resources :identities
   resources :hubs
+
+  resources :sohub_modules
   #resources :images
 end

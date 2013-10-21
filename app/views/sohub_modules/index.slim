@@ -1,0 +1,9 @@
+
+div.main-container
+  div.header
+    h1 Sohub 模块列表
+  div.row.sohub-module-list
+     -@sohub_modules.each do |sohub_module|
+       div.col-lg-3
+        i class="#{sohub_module.image}"
+        p #{sohub_module.name}
