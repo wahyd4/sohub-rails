@@ -136,8 +136,13 @@ h1 a {
     }
     .retweet {
       p {
-        font-size: 26px;
+        font-size: 0.55em;
         line-height: 120%;
+        background: yellowgreen;
+        margin-left: 0px;
+        border-radius: 30px;
+        border-top-left-radius: 0px;
+        padding: 13px;
       }
     }
   }
