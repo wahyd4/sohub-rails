@@ -17,4 +17,9 @@ class HubsController < ApplicationController
     render layout: 'hub.slim'
   end
 
+  def my_list
+    @hubs = @current_user.hubs
+    render :my_list
+  end
+
 end

@@ -3,7 +3,6 @@ SohubRails::Application.routes.draw do
   root 'home#index'
 
   get '/hubs/' => 'hubs#index'
-  resources :hubs
 
   #resource :messages
 
@@ -31,7 +30,10 @@ SohubRails::Application.routes.draw do
 
   post '/weixin/query', to: "weixin#query"
 
-  resources :identities
 
+  get '/hubs/mine', to: "hubs#my_list"
+
+  resources :identities
+  resources :hubs
   #resources :images
 end
