@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :messages
   has_many :hubs
+  has_many :user_to_sohub_modules
+  has_many :sohub_modules, through: :user_to_sohub_modules
   belongs_to :image
   attr_accessor :front_end_display_name
 

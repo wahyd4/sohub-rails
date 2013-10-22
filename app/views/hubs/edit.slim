@@ -1,1 +1,13 @@
-Test dedit
+div.main-container
+  div.header
+    h1 编辑当前频道的模块
+  div.row.my-modules
+    form method="POST" action="#{hub_path}"
+      - @sohub_modules.each do |sohub_module|
+        div
+          input type="checkbox" name="module" value="#{sohub_module.name}"
+            =sohub_module.name
+      div.submit-area
+        input type="submit" class="button" value="提交"
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021140147) do
+ActiveRecord::Schema.define(version: 20131022143206) do
 
   create_table "credentials", force: true do |t|
     t.string   "oauth_provider"
@@ -65,6 +65,13 @@ ActiveRecord::Schema.define(version: 20131021140147) do
     t.string   "name"
     t.string   "image"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_to_sohub_modules", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "sohub_module_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

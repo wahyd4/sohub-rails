@@ -23,7 +23,8 @@ class HubsController < ApplicationController
   end
 
   def edit
-
+    @sohub_modules = SohubModule.all
+    @my_modules = @current_user.sohub_modules
   end
 
 end
